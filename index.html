@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法国 · 意大利 13 天家庭游</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1424; --card:#141a2e; --card2:#1a2138;
+    --line:#26304d; --txt:#e8edf7; --mut:#8b97b3;
+    --cy:#22d3ee; --pp:#a78bfa; --pk:#f472b6; --gr:#34d399; --am:#fbbf24;
+    --grad:linear-gradient(120deg,#22d3ee,#a78bfa 55%,#f472b6);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(800px 500px at 12% -5%,rgba(34,211,238,.14),transparent 60%),
+      radial-gradient(700px 500px at 95% 8%,rgba(167,139,250,.16),transparent 60%),
+      radial-gradient(700px 600px at 50% 110%,rgba(244,114,182,.10),transparent 60%);}
+  a{color:inherit;text-decoration:none}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:rgba(10,14,26,.72);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:11px 18px;flex-wrap:wrap}
+  .brand{font-weight:800;letter-spacing:.5px;margin-right:auto;font-size:15px}
+  .brand b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-in a{font-size:13px;color:var(--mut);padding:6px 11px;border-radius:20px;transition:.2s}
+  .nav-in a:hover{color:var(--txt);background:var(--card2)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+  section{padding:54px 0;scroll-margin-top:64px}
+  .eyebrow{font-size:12px;letter-spacing:3px;color:var(--cy);text-transform:uppercase;font-weight:700;margin-bottom:10px}
+  h2.sec{font-size:27px;font-weight:800;margin-bottom:6px;letter-spacing:.5px}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:26px}
+
+  /* HERO */
+  header.hero{padding:70px 0 30px;text-align:center}
+  .hero h1{font-size:clamp(30px,6vw,56px);font-weight:900;letter-spacing:1px;line-height:1.1}
+  .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .teamline{margin-top:14px;font-size:13px;letter-spacing:2px;color:var(--pp);font-weight:700}
+  .teamline b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .route{margin:18px 0 6px;color:var(--mut);font-size:clamp(13px,2.6vw,16px);letter-spacing:1px}
+  .hero .route b{color:var(--txt)}
+  .meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:7px 15px;font-size:13px;color:var(--mut)}
+  .chip b{color:var(--txt)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:680px;margin:34px auto 0}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 10px;text-align:center}
+  .stat .n{font-size:30px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .stat .l{font-size:12px;color:var(--mut);margin-top:7px}
+
+  /* ROUTE RIBBON */
+  .ribbon{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding:6px 2px 14px;margin-top:6px}
+  .leg{flex:1;min-width:150px;position:relative;padding:18px 16px;border:1px solid var(--line);background:var(--card);border-radius:16px;margin-right:34px}
+  .leg:last-child{margin-right:0}
+  .leg::after{content:"→";position:absolute;right:-26px;top:50%;transform:translateY(-50%);color:var(--mut);font-size:20px}
+  .leg:last-child::after{display:none}
+  .leg .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px}
+  .leg .city{font-weight:800;font-size:16px}
+  .leg .days{font-size:12px;color:var(--mut);margin-top:4px}
+  .leg .desc{font-size:12.5px;color:var(--mut);margin-top:8px}
+
+  /* FILTER */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .fbtn{cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--mut);
+    padding:7px 14px;border-radius:22px;font-size:13px;transition:.2s;user-select:none}
+  .fbtn:hover{color:var(--txt)}
+  .fbtn.on{color:#08101e;font-weight:700;border-color:transparent}
+
+  /* DAY CARDS */
+  .days-grid{display:grid;gap:16px}
+  .day{border:1px solid var(--line);background:linear-gradient(180deg,var(--card),var(--bg2));
+    border-radius:18px;overflow:hidden;transition:.25s}
+  .day:hover{border-color:#3a466b}
+  .day-head{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer}
+  .daynum{flex:none;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+    font-weight:900;font-size:17px;color:#08101e}
+  .day-head .t1{font-weight:800;font-size:15.5px}
+  .day-head .t2{font-size:12.5px;color:var(--mut);margin-top:2px}
+  .badge{margin-left:auto;flex:none;font-size:11px;padding:4px 10px;border-radius:20px;
+    border:1px solid var(--line);color:var(--mut);white-space:nowrap}
+  .arrow{flex:none;color:var(--mut);transition:.25s;font-size:13px;margin-left:10px}
+  .day.open .arrow{transform:rotate(90deg)}
+  .day-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .day-inner{padding:2px 18px 20px 18px}
+  .tl{position:relative;margin-left:6px;padding-left:20px;border-left:1.5px dashed var(--line)}
+  .ev{position:relative;padding:9px 0}
+  .ev::before{content:"";position:absolute;left:-26px;top:15px;width:9px;height:9px;border-radius:50%;
+    background:var(--cy);box-shadow:0 0 0 3px rgba(34,211,238,.15)}
+  .ev .tm{font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--cy);margin-right:8px}
+  .ev .dx{font-size:14px}
+  .ev .dx .em{color:var(--am)}
+  .note{margin-top:14px;font-size:12.5px;color:var(--mut);background:var(--card2);
+    border-left:3px solid var(--pp);padding:9px 12px;border-radius:0 10px 10px 0}
+  .stay{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:12.5px;
+    color:var(--gr);background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);
+    padding:5px 11px;border-radius:10px}
+
+  /* GENERIC CARDS */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .gc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .gc h3{font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .gc h3 .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px}
+  .gc ul{list-style:none;font-size:13.5px;color:var(--mut)}
+  .gc li{padding:5px 0 5px 16px;position:relative}
+  .gc li::before{content:"";position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--cy)}
+  .gc li b{color:var(--txt)}
+  .em{color:var(--am)}
+
+  /* TRANSPORT TABLE */
+  .ttbl{width:100%;border-collapse:collapse;font-size:13.5px;overflow:hidden;border-radius:14px}
+  .ttbl th,.ttbl td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  .ttbl th{background:var(--card2);color:var(--mut);font-weight:600;font-size:12px;letter-spacing:.5px}
+  .ttbl td:first-child{font-weight:700;white-space:nowrap}
+  .ttbl tr:last-child td{border-bottom:none}
+  .ttbl .way{color:var(--cy);font-weight:600}
+  .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+
+  /* FEEDBACK */
+  .fb{background:linear-gradient(135deg,rgba(34,211,238,.10),rgba(167,139,250,.12));
+    border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center;margin-top:10px}
+  .fb h3{font-size:20px;margin-bottom:8px}
+  .fb p{color:var(--mut);font-size:14px;max-width:560px;margin:0 auto}
+
+  footer{text-align:center;color:var(--mut);font-size:12.5px;padding:36px 18px 50px;border-top:1px solid var(--line);margin-top:30px}
+
+  @media(max-width:680px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .leg{margin-right:30px}
+    section{padding:42px 0}
+    .brand{font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <span class="brand">🚐 <b>Genius Hit The Road</b> · 法意 13 日</span>
+    <a href="#overview">总览</a>
+    <a href="#daily">每日行程</a>
+    <a href="#transport">交通</a>
+    <a href="#booking">必订</a>
+    <a href="#tips">贴士</a>
+    <a href="#feedback">反馈</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">Genius Hit The Road · 2026 秋</div>
+  <h1>法国 <span class="g">×</span> 意大利<br>13 天<span class="g">慢节奏</span >之旅</h1>
+  <div class="teamline">✦ 旅行团体 <b>Genius Hit The Road</b> ✦</div>
+  <div class="route"><b>巴黎</b> → 蔚蓝海岸 → <b>佛罗伦萨</b> → 阿玛尔菲海岸 → <b>罗马出</b></div>
+  <div class="meta-row">
+    <span class="chip">📅 <b>9.23 → 10.5</b></span>
+    <span class="chip">👨‍👩‍👧‍👧 <b>6 人</b>(2男4女)</span>
+    <span class="chip">🧳 行李多 · <b>全程不自驾</b></span>
+    <span class="chip">🛌 每天 <b>约11点</b> 慢出发</span>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">13</div><div class="l">天</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">主要落脚城市</div></div>
+    <div class="stat"><div class="n">12</div><div class="l">晚住宿</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">次自驾</div></div>
+  </div>
+</header>
+
+<section id="overview" class="wrap">
+  <div class="eyebrow">Route</div>
+  <h2 class="sec">整体动线</h2>
+  <p class="sub">由北向南一条线,几乎不走回头路 · 跨城用高铁/包车,门到门省心</p>
+  <div class="ribbon">
+    <div class="leg"><span class="dot" style="background:var(--cy)"></span><span class="city">巴黎 Paris</span>
+      <div class="days">Day 1–5 · 9.23–9.27</div>
+      <div class="desc">铁塔 · 卢浮宫 · 圣母院 · 玛黑购物</div></div>
+    <div class="leg"><span class="dot" style="background:var(--pp)"></span><span class="city">尼斯 / 蔚蓝海岸</span>
+      <div class="days">Day 5–8 · 9.27–9.30</div>
+      <div class="desc">埃兹 · 自由城 · 摩纳哥 · 芒通</div></div>
+    <div class="leg"><span class="dot" style="background:var(--pk)"></span><span class="city">佛罗伦萨</span>
+      <div class="days">Day 8–10 · 9.30–10.2</div>
+      <div class="desc">圣母百花 · 乌菲兹 · 文艺复兴</div></div>
+    <div class="leg"><span class="dot" style="background:var(--gr)"></span><span class="city">索伦托 / 阿玛尔菲</span>
+      <div class="days">Day 10–13 · 10.2–10.5</div>
+      <div class="desc">卡普里岛 · 波西塔诺 · 阿玛尔菲</div></div>
+  </div>
+  <div class="note" style="margin-top:18px">
+    ⏰ <b>时差提示</b>:北京→巴黎向西飞(慢6小时),通常早醒、晚上早困,头两天明显。所以全程从午前慢出发、不订早场票、晚餐不排太晚——早醒赖床都不浪费。真正难受的是<b>回北京后</b>那几天。
+  </div>
+</section>
+
+<section id="daily" class="wrap">
+  <div class="eyebrow">Day by Day</div>
+  <h2 class="sec">逐日详细行程</h2>
+  <p class="sub">点击任意一天展开/收起 · 时间为建议参考,可按当天体力天气灵活增减</p>
+  <div class="filters" id="filters"></div>
+  <div class="days-grid" id="daysGrid"></div>
+</section>
+
+<section id="transport" class="wrap">
+  <div class="eyebrow">Logistics</div>
+  <h2 class="sec">交通策略</h2>
+  <p class="sub">为什么全程不自驾:跨国异地还车费 €600–850、意大利 ZTL 限行罚单、海岸公路+摩纳哥停车难、倒时差期间交给司机更安全。包车+高铁+轮渡,无需驾照公证翻译件。</p>
+  <div class="scroller">
+  <table class="ttbl">
+    <tr><th>路段</th><th>方式</th><th>说明</th></tr>
+    <tr><td>巴黎 → 尼斯</td><td class="way">直达高铁 TGV ·约6h</td><td>市中心到市中心,行李无重量限制/不收件费。<span class="em">⚠️ 直达每天约5班、多在上午到下午,越晚越可能只剩换乘——订票先在 SNCF Connect 确认当天午后直达</span></td></tr>
+    <tr><td>尼斯一带</td><td class="way">包车游(带司机)</td><td>埃兹/摩纳哥/芒通;不用找车位,司机熟 Corniche 海岸路</td></tr>
+    <tr><td>尼斯 → 佛罗伦萨</td><td class="way">跨境包车</td><td>行李全在车上、门到门,中途停热那亚/圣玛格丽塔午餐</td></tr>
+    <tr><td>佛罗伦萨 → 那不勒斯</td><td class="way">高铁 Frecciarossa ·约3h</td><td>约每小时一班,提前订连座、有行李架</td></tr>
+    <tr><td>那不勒斯 → 索伦托</td><td class="way">私人接送 ·约1h15</td><td><span class="em">别坐 Circumvesuviana 慢车</span>(挤、扒手、行李难放)</td></tr>
+    <tr><td>索伦托 ↔ 卡普里</td><td class="way">轮渡 ·25–45min</td><td>上岛唯一方式,看海况;岛上陆地游玩即可</td></tr>
+    <tr><td>索伦托 ↔ 波西塔诺/阿玛尔菲</td><td class="way">海岸公路包车</td><td>走陆路不依赖轮渡、受天气影响小</td></tr>
+    <tr><td>索伦托 → 罗马 FCO</td><td class="way">包车 ·3–3.5h</td><td>门到门,20:00 航班缓冲充足</td></tr>
+  </table>
+  </div>
+</section>
+
+<section id="booking" class="wrap">
+  <div class="eyebrow">Checklist</div>
+  <h2 class="sec">必订清单 · 按时间排序</h2>
+  <p class="sub">越早订越省/越保险,把这几类先锁定</p>
+  <div class="cards">
+    <div class="gc">
+      <h3><span class="ic" style="background:rgba(244,114,182,.15)">🔴</span>现在就订</h3>
+      <ul>
+        <li><b>巴黎→尼斯直达 TGV</b>(午后班、连座)</li>
+        <li>尼斯 2 天<b>包车游</b>(注明6人多行李)</li>
+        <li>尼斯→佛罗伦萨<b>跨境包车</b></li>
+        <li>佛罗伦萨→那不勒斯<b>高铁</b></li>
+        <li>那不勒斯↔索伦托、索伦托→FCO <b>接送</b></li>
+        <li>全部<b>住宿</b>(索伦托/佛罗伦萨尤其旺)</li>
+      </ul>
+    </div>
+    <div class="gc">
+      <h3><span class="ic" style="background:rgba(251,191,36,.15)">🟡</span>提前 3–6 周</h3>
+      <ul>
+        <li>🗼 埃菲尔铁塔<b>登顶票</b>(最易售罄)</li>
+        <li>🖼️ 卢浮宫<b>时段票</b>(强制时段)</li>
+        <li>圣礼拜堂 Sainte-Chapelle 彩窗</li>
+        <li>乌菲兹 / 学院美术馆(大卫像)</li>
+        <li>圣母百花<b>穹顶登顶</b>时段票</li>
+        <li>摩纳哥海洋博物馆 + 热门餐厅</li>
+      </ul>
+    </div>
+    <div class="gc">
+      <h3><span class="ic" style="background:rgba(34,211,238,.15)">🔵</span>提前几天 / 2–3 天</h3>
+      <ul>
+        <li><b>卡普里轮渡</b>(10.3周六,查海况)</li>
+        <li>各热门餐厅</li>
+        <li><b>巴黎圣母院免费时段</b>:官方 App 巴黎午夜放票,<b>每单6人</b>(刚好一组),提前注册设提醒</li>
+        <li>钟楼登顶 €16 单独在 CMN 官网订</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="tips" class="wrap">
+  <div class="eyebrow">Good to Know</div>
+  <h2 class="sec">实用贴士</h2>
+  <p class="sub">出行前过一遍,省心省钱</p>
+  <div class="cards">
+    <div class="gc"><h3><span class="ic" style="background:rgba(34,211,238,.15)">🌤️</span>天气穿着</h3>
+      <ul><li>巴黎约 <b>12–20℃</b>、可能有雨,带薄外套+伞</li><li>蔚蓝海岸/阿玛尔菲约 <b>18–25℃</b></li><li>进教堂(圣母院等)需<b>遮肩盖膝</b></li></ul></div>
+    <div class="gc"><h3><span class="ic" style="background:rgba(167,139,250,.15)">⛴️</span>海况 / 晕车</h3>
+      <ul><li>卡普里轮渡看海况,<b>当天查末班船</b></li><li>大风停渡 → 卡普里顺延一天</li><li>海岸公路弯多,<b>备晕车药</b></li></ul></div>
+    <div class="gc"><h3><span class="ic" style="background:rgba(52,211,153,.15)">💶</span>退税</h3>
+      <ul><li>法国单店满约 <b>€100</b>、意大利约 <b>€70</b> 起可退</li><li>店内只开单,<span class="em">海关盖章核验在罗马 FCO 统一办</span>(法国买的也在罗马)</li><li>机场预留 <b>1–1.5h</b></li></ul></div>
+    <div class="gc"><h3><span class="ic" style="background:rgba(251,191,36,.15)">🧳</span>行李 / 网络</h3>
+      <ul><li>高铁选有行李架车厢;轮渡大件约 €2/件</li><li>6人多行李 → <b>包车最省心</b></li><li>欧洲通用 <b>eSIM</b>,落地即用</li></ul></div>
+    <div class="gc"><h3><span class="ic" style="background:rgba(244,114,182,.15)">💳</span>支付 / 安全</h3>
+      <ul><li>欧元,普遍刷卡;小镇/渡口/市场备<b>少量现金</b></li><li>巴黎、那不勒斯、各火车站<b>防扒手</b>,背包前背</li></ul></div>
+    <div class="gc"><h3><span class="ic" style="background:rgba(34,211,238,.15)">🚗</span>无需自驾</h3>
+      <ul><li>全程包车+高铁+轮渡</li><li><b>不用办中国驾照公证翻译件</b></li><li>意大利 ZTL 限行由包车司机处理</li></ul></div>
+  </div>
+</section>
+
+<section id="feedback" class="wrap">
+  <div class="fb">
+    <h3>📝 大家看看有没有问题</h3>
+    <p>这是初版详细行程,主要想确认<b>节奏松紧、景点取舍、餐厅口味、每天起止时间</b>是否合适。如果大家都OK,下一步就开始订票、办签证和具体准备。有想法直接在群里说 👇</p>
+  </div>
+</section>
+
+<footer>
+  <b>Genius Hit The Road</b> &nbsp;·&nbsp; 法国 · 意大利 13 天家庭游攻略 &nbsp;·&nbsp; 初版供讨论 &nbsp;·&nbsp; 行程留有充足缓冲,可按当天体力/天气灵活增减
+</footer>
+
+<script>
+const DAYS=[
+ {n:1,date:"9.23",wd:"周三",city:"巴黎",color:"--cy",title:"抵达巴黎",badge:"落地休整",
+  ev:[["22:30","戴高乐机场 (CDG) 落地;过关取行李约 1 小时"],
+      ["23:45","预约机场接送大车直达酒店(6人+行李,约 €90–130)"],
+      ["00:30","入住休息,<em>今天不安排活动</em>"]],
+  stay:"巴黎 歌剧院/卢浮宫区 · 建议 3 间双床房或公寓式酒店"},
+ {n:2,date:"9.24",wd:"周四",city:"巴黎",color:"--cy",title:"埃菲尔铁塔 & 塞纳河",badge:"倒时差弹性日",
+  ev:[["11:00","睡饱起,酒店附近 brunch(早醒可先去街区咖啡馆)"],
+      ["13:30","特罗卡德罗广场 拍铁塔全景大片"],
+      ["14:30","🗼 埃菲尔铁塔<em>登顶</em>(订下午场),约 2h"],
+      ["16:30","战神广场草坪歇脚 + 河岸散步"],
+      ["17:15","塞纳河游船 Bateaux Mouches(Alma 桥码头,紧邻铁塔),约 1h"],
+      ["19:00","晚餐 Café de l'Homme(正对铁塔)或 Les Ombres"],
+      ["夜","体力够看铁塔整点闪灯(每小时5分钟),累了早回"]],
+  note:"第一整天早晨完全弹性,几点醒几点出门都行,不订早场票。",stay:"巴黎(连住)"},
+ {n:3,date:"9.25",wd:"周五",city:"巴黎",color:"--cy",title:"卢浮宫 + 大牌购物",badge:"购物日",
+  ev:[["11:00","早餐(店铺约10–11点开门,不必赶)"],
+      ["12:00","🛍️ 蒙田大道(Chanel/Dior/LV)→ 香榭丽舍 LV 旗舰 → 圣honoré街(Hermès)"],
+      ["13:30","午餐(香榭丽舍/旺多姆附近)"],
+      ["15:00","老佛爷/巴黎春天 一站式扫货 + <em>办退税单</em>(海关核验留到罗马)。Chanel 旗舰 31 rue Cambon 顺路"],
+      ["17:30","🖼️ 卢浮宫(周五开放至 21:45,傍晚人少;已订时段票)约 3h"],
+      ["20:30","晚餐 皇家宫殿 Palais Royal 一带 bistro"]],
+  note:"卢浮宫订周五傍晚场(开放到 21:45),上午可继续睡饱、慢慢逛街。",stay:"巴黎(连住)"},
+ {n:4,date:"9.26",wd:"周六",city:"巴黎",color:"--cy",title:"西岱岛 + 玛黑区",badge:"老城慢逛",
+  ev:[["11:00","早餐"],
+      ["12:00","⛪ 巴黎圣母院内部(提前2–3天 App 约免费时段,6人一组)+ 外观广场"],
+      ["13:00","圣礼拜堂 Sainte-Chapelle(彩色玻璃震撼,已订)"],
+      ["13:45","拉丁区 / 西岱岛午餐"],
+      ["15:00","🛍️ 玛黑区 Le Marais:孚日广场、买手店、网红甜品"],
+      ["17:30","(可选)蒙马特高地 + 圣心堂看全城日落"],
+      ["20:00","晚餐 Chez Janou(普罗旺斯菜)或 Bouillon 系列(平价6人友好)"]],
+  stay:"巴黎(连住)"},
+ {n:5,date:"9.27",wd:"周日",city:"巴黎→尼斯",color:"--pp",title:"巴黎 → 尼斯(直达高铁)",badge:"🚄 转场约6h",
+  ev:[["11:00","退房,从容早午餐(行李寄存或带去车站)"],
+      ["12:30","步行/打车到 巴黎里昂车站 Gare de Lyon"],
+      ["13:00","🚄 直达 TGV → 尼斯(约6h;<em>当日车次先在 SNCF Connect 确认有午后直达</em>)"],
+      ["约19:00","抵达 Nice-Ville 站(市中心),入住老城/海滨"],
+      ["19:30","晚餐 La Petite Maison(尼斯名店)或老城 socca 鹰嘴豆薄饼"]],
+  note:"直达班次有限(约5班/天、多在上午到下午),越晚越可能只剩换乘——务必先确认。想早到可坐 10:09→16:08 那班。",
+  stay:"尼斯(连住 3 晚,免搬行李)"},
+ {n:6,date:"9.28",wd:"周一",city:"蔚蓝海岸",color:"--pp",title:"埃兹 + 自由城 + 尼斯",badge:"🚐 包车·轻松日",
+  ev:[["11:00","早餐,司机酒店门口接"],
+      ["11:45","🚐 走 Moyenne Corniche 到 埃兹小镇 Èze(悬崖中世纪村+仙人掌花园),约1.5–2h"],
+      ["13:30","午餐(Èze 山顶或山下海边)"],
+      ["15:00","滨海自由城 Villefranche-sur-Mer(深水海湾、彩色老城)"],
+      ["16:30","回尼斯,英国人长廊 海边散步"],
+      ["17:15","(可选不累)城堡山 Colline du Château:老城<em>免费电梯</em>直接上山顶,俯瞰天使湾红顶老城"],
+      ["19:30","晚餐 尼斯老城(海鲜/地中海菜)"]],
+  note:"司机全程接送,这天放轻松给身体缓冲。体力好可加 圣保罗德旺斯 山顶艺术古镇。",stay:"尼斯(连住)"},
+ {n:7,date:"9.29",wd:"周二",city:"蔚蓝海岸",color:"--pp",title:"芒通 + 摩纳哥",badge:"🚐 包车·一天两地",
+  ev:[["11:00","早餐,司机来接"],
+      ["11:30","🚐 芒通 Menton(柠檬之城,法意边境,黄粉色老城+花园),约40min"],
+      ["12:45","芒通老城海鲜午餐 + 漫步阶梯街、海滩"],
+      ["14:30","🚐 到 摩纳哥(约20min)"],
+      ["15:00","摩纳哥岩山 Le Rocher:亲王宫广场看卫兵、海洋博物馆(已订)、大教堂、俯瞰游艇港+F1赛道"],
+      ["17:30","Casino 广场:只在<em>外面</em>看美好年代赌场建筑和豪车、拍照(不进场)"],
+      ["18:30","晚餐 Café de Paris Monte-Carlo 或回尼斯吃"],
+      ["夜","走 Basse Corniche 海岸路回尼斯看夜景;<em>收拾行李</em>"]],
+  note:"两地仅约10公里、车程15–20分钟,一天很从容。重心放在摩纳哥岩山老城。",stay:"尼斯(连住)"},
+ {n:8,date:"9.30",wd:"周三",city:"尼斯→佛罗伦萨",color:"--pk",title:"尼斯 → 佛罗伦萨(跨境包车)",badge:"🚙 唯一稍早出发日",
+  ev:[["10:30","早餐,司机门口接、装行李"],
+      ["11:00","出发,沿海岸进入意大利里维埃拉"],
+      ["13:30","圣玛格丽塔 / 热那亚午餐,远眺 Portofino"],
+      ["15:00","继续前往佛罗伦萨"],
+      ["18:30","抵达佛罗伦萨,入住市中心(圣母百花/SMN 站附近)"],
+      ["20:00","晚餐 托斯卡纳 T 骨牛排 Il Latini(适合6人)或 Buca Lapi"]],
+  note:"全程长途、门到门约5.5–7h(含停留),晚出发就会很晚到——这天建议稍早。若想换体力,这段可改飞 Nice→Florence/Pisa(约€100–180/人,通常需中转)。",
+  stay:"佛罗伦萨(连住 2 晚)"},
+ {n:9,date:"10.1",wd:"周四",city:"佛罗伦萨",color:"--pk",title:"佛罗伦萨文艺复兴一日",badge:"美术馆二选一",
+  ev:[["11:00","早餐"],
+      ["11:45","⛪ 圣母百花大教堂 Duomo 外观 + 登 Brunelleschi 穹顶(已订;体力一般改登乔托钟楼)"],
+      ["13:00","午餐 All'Antico Vinaio 网红三明治 或就近 trattoria"],
+      ["14:30","🖼️ 乌菲兹美术馆(《维纳斯诞生》;周一闭馆)约2.5h,<em>或</em>学院美术馆看大卫像(更轻松约1h)"],
+      ["16:30","旧桥 Ponte Vecchio 散步"],
+      ["17:00","(可选)买皮具:Scuola del Cuoio 皮革学校工坊,品质更靠谱"],
+      ["18:00","米开朗基罗广场 看日落 + 全城天际线"],
+      ["20:00","晚餐 Oltrarno 区 Osteria Santo Spirito(松露面)+ Vivoli 冰淇淋"]],
+  note:"11点起就够玩核心。建议乌菲兹/学院二选一,节奏更松。",stay:"佛罗伦萨(连住)"},
+ {n:10,date:"10.2",wd:"周五",city:"佛罗伦萨→索伦托",color:"--gr",title:"佛罗伦萨 → 索伦托(高铁+接送)",badge:"🚄 转场",
+  ev:[["11:00","早餐,最后逛一逛"],
+      ["12:30","SMN 站乘 Frecciarossa 高铁 → 那不勒斯(约3h,已订连座)"],
+      ["15:30","那不勒斯中央站,私人接送 → 索伦托(约1h15,途经维苏威/海湾)"],
+      ["17:00","抵达索伦托,入住 Piazza Tasso 附近"],
+      ["18:00","老城散步、Villa Comunale 露台看海湾日落、试 limoncello"],
+      ["20:00","晚餐 O'Parrucchiano(千层卷发源地,柠檬园)或 Bagni Delfino 海边"]],
+  note:"为什么住索伦托不住波西塔诺:交通枢纽、平地好拖行李、餐厅多;波西塔诺全是台阶、贵、拖行李痛苦。",
+  stay:"索伦托(连住 3 晚,卡普里+阿玛尔菲大本营)"},
+ {n:11,date:"10.3",wd:"周六",city:"卡普里岛",color:"--gr",title:"卡普里岛(优先日)",badge:"⛴️ 看海况",
+  ev:[["11:00","早餐"],
+      ["12:00","⛴️ 索伦托 Marina Piccola → 卡普里轮渡(约25–45min,周六提前订)"],
+      ["12:45","到卡普里,Marina Grande 乘缆索车上 卡普里镇"],
+      ["13:15","午餐 卡普里镇上餐厅(就近,省折返)"],
+      ["14:45","乘 Monte Solaro 缆车(阿纳卡普里)俯瞰全岛,或走到 Faraglioni 礁石观景台"],
+      ["16:00","Augustus 花园、Piazzetta 喝咖啡、小店"],
+      ["17:30","(可选)蓝洞:换小船+看海况+常排队,不游泳可去可不去"],
+      ["约18:30","⛴️ 返回索伦托(<em>当天先拍下回程末班时刻,别误船</em>)"],
+      ["20:00","晚餐 索伦托海鲜"]],
+  note:"上岛靠轮渡看海况,放前面优先去;若大风停渡就顺延到 10.4,把波西塔诺/阿玛尔菲挪到今天。岛上陆地游玩即可。",
+  stay:"索伦托(连住)"},
+ {n:12,date:"10.4",wd:"周日",city:"阿玛尔菲海岸",color:"--gr",title:"波西塔诺 + 阿玛尔菲",badge:"弹性/备用日",
+  ev:[["11:00","早餐,司机来接"],
+      ["12:00","🚙 海岸公路 → 波西塔诺(约1h):彩色山城、Spiaggia Grande 海滩、精品店、主教堂金顶"],
+      ["13:30","午餐 La Tagliata(山顶家庭餐厅,含接驳)或 Chez Black 海边"],
+      ["15:30","🚙 到 阿玛尔菲镇(约40min):主教座堂、造纸博物馆、柠檬巷"],
+      ["17:30","返回索伦托"],
+      ["20:00","告别晚餐 索伦托海鲜"],
+      ["晚","收拾行李"]],
+  note:"优先级低又能走陆路、不依赖轮渡:10.3 去成卡普里 → 今天悠闲逛(不想去可纯休息);10.3 没去成 → 今天改去卡普里。海岸公路弯多备晕车药。",
+  stay:"索伦托(连住)"},
+ {n:13,date:"10.5",wd:"周一",city:"索伦托→罗马→北京",color:"--am",title:"索伦托 → 罗马机场 → 北京",badge:"✈️ 回程",
+  ev:[["11:00","从容早餐"],
+      ["11:45","退房,包车 索伦托 → 罗马 FCO(约3–3.5h,门到门)"],
+      ["15:15","抵达 FCO,午餐 + <em>办退税</em>(法/意购物统一在此核验,留足时间)"],
+      ["17:00","国际值机/安检"],
+      ["20:00","✈️ 起飞回北京(晚航班缓冲充足)"]],
+  note:"想更稳/顺便看罗马:可把 10.4 晚移到罗马住一晚,10.5 上午快速打卡斗兽场外观/特雷维喷泉再去机场。"},
+];
+
+const CITYGROUPS=[
+ {key:"all",label:"全部 13 天",color:"--txt"},
+ {key:"巴黎",label:"🗼 巴黎",color:"--cy"},
+ {key:"蔚蓝",label:"🌊 蔚蓝海岸",color:"--pp"},
+ {key:"佛罗",label:"🎨 佛罗伦萨",color:"--pk"},
+ {key:"索伦托",label:"⛴️ 阿玛尔菲",color:"--gr"},
+];
+function groupOf(d){
+  if(d.color==="--cy")return "巴黎";
+  if(d.color==="--pp")return "蔚蓝";
+  if(d.color==="--pk")return "佛罗";
+  return "索伦托";
+}
+function cssv(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+
+function render(filter){
+  const grid=document.getElementById('daysGrid');grid.innerHTML='';
+  DAYS.filter(d=>filter==="all"||groupOf(d)===filter).forEach(d=>{
+    const c=cssv(d.color);
+    const evs=d.ev.map(e=>`<div class="ev"><span class="tm">${e[0]}</span><span class="dx">${e[1]}</span></div>`).join('');
+    const note=d.note?`<div class="note">💡 ${d.note}</div>`:'';
+    const stay=d.stay?`<div class="stay">🏨 ${d.stay}</div>`:'';
+    const el=document.createElement('div');el.className='day';
+    el.innerHTML=`
+      <div class="day-head">
+        <div class="daynum" style="background:linear-gradient(135deg,${c},${c}99)">${d.n}</div>
+        <div><div class="t1">${d.title}</div><div class="t2">${d.date} ${d.wd} · ${d.city}</div></div>
+        <span class="badge" style="color:${c};border-color:${c}55">${d.badge}</span>
+        <span class="arrow">▶</span>
+      </div>
+      <div class="day-body"><div class="day-inner"><div class="tl">${evs}</div>${note}${stay}</div></div>`;
+    el.querySelector('.day-head').addEventListener('click',()=>{
+      const open=el.classList.toggle('open');
+      const body=el.querySelector('.day-body');
+      body.style.maxHeight=open?body.firstElementChild.scrollHeight+40+'px':'0';
+    });
+    grid.appendChild(el);
+  });
+  // open first by default
+  const first=grid.querySelector('.day');
+  if(first){first.classList.add('open');const b=first.querySelector('.day-body');b.style.maxHeight=b.firstElementChild.scrollHeight+40+'px';}
+}
+const fc=document.getElementById('filters');
+CITYGROUPS.forEach((g,i)=>{
+  const b=document.createElement('div');b.className='fbtn'+(i===0?' on':'');b.textContent=g.label;
+  if(i===0)b.style.background=cssv('--grad');
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(x=>{x.classList.remove('on');x.style.background='';x.style.color='';});
+    b.classList.add('on');
+    if(g.key==='all'){b.style.background=cssv('--grad');}
+    else{b.style.background=cssv(g.color);b.style.color='#08101e';}
+    render(g.key);
+  });
+  fc.appendChild(b);
+});
+render('all');
+</script>
+</body>
+</html>
