@@ -26,9 +26,10 @@
   nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
     background:rgba(10,14,26,.72);border-bottom:1px solid var(--line)}
   .nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:11px 18px;flex-wrap:wrap}
-  .brand{font-weight:800;letter-spacing:.5px;margin-right:auto;font-size:15px}
+  .brand{font-weight:800;letter-spacing:.5px;margin-right:auto;font-size:15px;white-space:nowrap}
   .brand b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .nav-in a{font-size:13px;color:var(--mut);padding:6px 11px;border-radius:20px;transition:.2s}
+  .nav-links{display:flex;gap:6px}
+  .nav-in a{font-size:13px;color:var(--mut);padding:6px 11px;border-radius:20px;transition:.2s;white-space:nowrap}
   .nav-in a:hover{color:var(--txt);background:var(--card2)}
 
   .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
@@ -112,13 +113,14 @@
   .em{color:var(--am)}
 
   /* TRANSPORT TABLE */
-  .ttbl{width:100%;border-collapse:collapse;font-size:13.5px;overflow:hidden;border-radius:14px}
+  .ttbl{width:100%;border-collapse:collapse;font-size:13.5px;overflow:hidden;border-radius:14px;min-width:560px}
   .ttbl th,.ttbl td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
   .ttbl th{background:var(--card2);color:var(--mut);font-weight:600;font-size:12px;letter-spacing:.5px}
   .ttbl td:first-child{font-weight:700;white-space:nowrap}
   .ttbl tr:last-child td{border-bottom:none}
   .ttbl .way{color:var(--cy);font-weight:600}
-  .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch}
+  .scroll-hint{display:none;font-size:11.5px;color:var(--mut);margin:-16px 0 14px;text-align:right}
 
   /* FEEDBACK */
   .fb{background:linear-gradient(135deg,rgba(34,211,238,.10),rgba(167,139,250,.12));
@@ -129,10 +131,32 @@
   footer{text-align:center;color:var(--mut);font-size:12.5px;padding:36px 18px 50px;border-top:1px solid var(--line);margin-top:30px}
 
   @media(max-width:680px){
-    .stats{grid-template-columns:repeat(2,1fr)}
+    /* NAV: brand on top, links as a horizontal scroll strip */
+    .nav-in{flex-wrap:nowrap;align-items:stretch;flex-direction:column;gap:7px;padding:9px 0 7px}
+    .brand{margin-right:0;font-size:14px;padding:0 14px;text-align:center}
+    .brand-sub{color:var(--mut);font-weight:600}
+    .nav-links{gap:5px;overflow-x:auto;padding:1px 12px 3px;-webkit-overflow-scrolling:touch;
+      scrollbar-width:none;-ms-overflow-style:none;justify-content:flex-start}
+    .nav-links::-webkit-scrollbar{display:none}
+    .nav-in a{flex:none;background:var(--card);border:1px solid var(--line);padding:6px 13px;font-size:12.5px}
+    section{scroll-margin-top:96px}
+
+    /* HERO */
+    header.hero{padding:46px 0 24px}
+    .hero h1{letter-spacing:0}
+    .meta-row{gap:8px;margin-top:18px}
+    .chip{padding:6px 12px;font-size:12px}
+    .stats{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
+    .stat .n{font-size:26px}
+
+    /* layout */
     .leg{margin-right:30px}
     section{padding:42px 0}
-    .brand{font-size:13px}
+    h2.sec{font-size:23px}
+    .wrap{padding:0 14px}
+
+    /* TABLE: show scroll hint, full-bleed scroller */
+    .scroll-hint{display:block}
   }
 </style>
 </head>
@@ -140,13 +164,15 @@
 
 <nav>
   <div class="nav-in">
-    <span class="brand">🚐 <b>Genius Hit The Road</b> · 法意 13 日</span>
-    <a href="#overview">总览</a>
-    <a href="#daily">每日行程</a>
-    <a href="#transport">交通</a>
-    <a href="#booking">必订</a>
-    <a href="#tips">贴士</a>
-    <a href="#feedback">反馈</a>
+    <span class="brand">🚐 <b>Genius Hit The Road</b><span class="brand-sub"> · 法意 13 日</span></span>
+    <div class="nav-links">
+      <a href="#overview">总览</a>
+      <a href="#daily">每日行程</a>
+      <a href="#transport">交通</a>
+      <a href="#booking">必订</a>
+      <a href="#tips">贴士</a>
+      <a href="#feedback">反馈</a>
+    </div>
   </div>
 </nav>
 
@@ -204,6 +230,7 @@
   <div class="eyebrow">Logistics</div>
   <h2 class="sec">交通策略</h2>
   <p class="sub">为什么全程不自驾:跨国异地还车费 €600–850、意大利 ZTL 限行罚单、海岸公路+摩纳哥停车难、倒时差期间交给司机更安全。包车+高铁+轮渡,无需驾照公证翻译件。</p>
+  <div class="scroll-hint">← 左右滑动查看完整表格 →</div>
   <div class="scroller">
   <table class="ttbl">
     <tr><th>路段</th><th>方式</th><th>说明</th></tr>
