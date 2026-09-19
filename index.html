@@ -114,6 +114,8 @@
     padding:10px 12px;border-radius:10px}
   .hotel-info{display:flex;align-items:flex-start;gap:8px;min-width:0}
   .hotel-address{display:block;color:var(--mut);font-weight:400;margin-top:2px;overflow-wrap:anywhere}
+  .hotel-phone{display:block;color:var(--cy);font-weight:650;margin-top:3px}
+  .hotel-phone a:hover{text-decoration:underline}
   .hotel-nav{flex:none;color:var(--gr);border:1px solid rgba(52,211,153,.35);border-radius:18px;padding:6px 10px;font-weight:700}
   .hotel-nav:hover{color:#08101e;background:var(--gr)}
   .mapbox{margin-top:14px;padding:12px;background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.2);border-radius:12px}
@@ -291,11 +293,11 @@
     <tr><th>路段</th><th>方式</th><th>说明</th></tr>
     <tr><td>CDG → 巴黎酒店</td><td class="way">已订 6 人接机</td><td>落地后门到门，车费 €120 现场支付；提前一天确认司机信息</td></tr>
     <tr><td>巴黎 → 尼斯</td><td class="way">已订直达 TGV · 11:22</td><td>当天提前买好午餐；酒店到车站的 6 人用车仍需确认</td></tr>
-    <tr><td>尼斯 → 芒通 → 佛罗伦萨</td><td class="way">已订跨境包车</td><td>芒通停留 2–3 小时，之后约 5 小时抵达佛罗伦萨</td></tr>
+    <tr><td>尼斯 → 佛罗伦萨（计划经芒通）</td><td class="way">跨境包车已订</td><td>订单仅确认尼斯→佛罗伦萨；芒通停留 2–3 小时需与司机再次确认</td></tr>
     <tr><td>佛罗伦萨 → 那不勒斯</td><td class="way">已订高铁 · 10:48–14:03</td><td>抵达 Napoli Centrale 后打车前往 Molo Beverello 码头</td></tr>
-    <tr><td>那不勒斯 → 卡普里</td><td class="way">已订轮渡</td><td>Molo Beverello 上船；当天再次确认码头、班次与海况</td></tr>
+    <tr><td>那不勒斯 → 卡普里</td><td class="way">NLG JET · 16:30</td><td>Molo Beverello 上船；至少提前 20 分钟到达，当天再次确认海况</td></tr>
     <tr><td>卡普里岛内</td><td class="way">缆索车 / 公交 / 敞篷出租</td><td>码头至卡普里镇优先缆索车；去安娜卡普里建议 5–6 人敞篷出租</td></tr>
-    <tr><td>卡普里 → 波西塔诺</td><td class="way">已订轮渡</td><td>带全部行李离岛，上岸后先寄存行李再游览</td></tr>
+    <tr><td>卡普里 → 波西塔诺</td><td class="way">Positano Jet 2 · 11:15</td><td>Marina Grande 直接登船，至少提前 30 分钟到达；上岸后先寄存行李</td></tr>
     <tr><td>波西塔诺 → 罗马</td><td class="way">已订包车</td><td>提前与司机确认行李交接和上车地点</td></tr>
     <tr><td>罗马市区 → FCO</td><td class="way">包车待确认</td><td>国际航班与退税均需留足时间</td></tr>
   </table>
@@ -315,17 +317,17 @@
     <tr><td>9.25 巴黎</td><td class="way">地铁 + 步行 + 短程打车</td><td>铁塔、香街与购物区之间灵活安排</td></tr>
     <tr><td>9.26 巴黎→尼斯</td><td class="way">直达 TGV</td><td><span class="em">已订 €432 / 6 人，约 €72/人</span></td></tr>
     <tr><td>9.27 尼斯</td><td class="way">全程步行</td><td>老城、城堡山、天使湾同一条慢游路线</td></tr>
-    <tr><td>9.28 尼斯→佛罗伦萨</td><td class="way">跨境包车</td><td><span class="em">已订 €900 / 6 人，约 €150/人</span></td></tr>
+    <tr><td>9.28 尼斯→佛罗伦萨</td><td class="way">跨境包车</td><td><span class="em">订单已确认，50% 定金已付</span>；芒通停留需与司机确认</td></tr>
     <tr><td>9.29 佛罗伦萨</td><td class="way">步行 + 日落段打车</td><td>圣母百花、乌菲兹之间步行约 500 米</td></tr>
     <tr><td>9.30 佛→卡普里</td><td class="way">高铁 + 打车 + 轮渡</td><td>高铁 €215.4 / 6 人；轮渡 €216 / 6 人，均已订</td></tr>
     <tr><td>10.1 卡普里</td><td class="way">敞篷出租 + 缆车</td><td>岛内出租约 €30/车；索拉罗山缆车约 €14/人</td></tr>
-    <tr><td>10.2 卡→波→罗马</td><td class="way">轮渡 + 包车</td><td>轮渡 €209.5 / 6 人；包车 €900 / 6 人，均已订</td></tr>
+    <tr><td>10.2 卡→波→罗马</td><td class="way">轮渡 + 包车</td><td>轮渡 <span class="em">€174 / 6 人</span>；包车订单已确认，50% 定金已付</td></tr>
     <tr><td>10.3 罗马·梵蒂冈</td><td class="way">步行 + 短程打车</td><td>梵蒂冈博物馆门票 <span class="em">已订 €150 / 6 人</span></td></tr>
     <tr><td>10.4 罗马</td><td class="way">步行为主</td><td>斗兽场免费开放日，需预留排队时间</td></tr>
     <tr><td>10.5 罗马→FCO</td><td class="way">6 人包车</td><td><span class="em">待确认</span></td></tr>
   </table>
   </div>
-  <div class="note" style="margin-top:18px">💰 9.28 跨境包车、9.30 高铁与轮渡、10.2 轮渡与包车均已锁定；当前交通重点是确认<b>巴黎酒店→车站、卡普里码头→酒店、罗马酒店→FCO</b>三段接驳。</div>
+  <div class="note" style="margin-top:18px">💰 9.28 与 10.2 的包车订单已确认并支付 50% 定金；9.30 高铁与两段轮渡均已出票。当前重点是确认<b>9.28 芒通停留、巴黎酒店→车站、卡普里码头→酒店、罗马酒店→FCO</b>。</div>
 </section>
 
 <section id="booking" class="wrap">
@@ -358,6 +360,7 @@
     <div class="gc">
       <h3><span class="ic" style="background:rgba(251,191,36,.15)">🟡</span>仍需确认</h3>
       <ul>
+        <li>9.28 包车订单未写明芒通停留，需与司机<b>再次确认停留和总时长</b></li>
         <li>巴黎酒店→车站的<b>6 人接送</b></li>
         <li>9.24 <b>圣礼拜堂</b>是否加入、巴黎圣母院仅看外观</li>
         <li>9.25 <b>塞纳河游船</b>是否购买</li>
@@ -473,7 +476,7 @@ const DAYS=[
   maps:[["戴高乐机场","Charles de Gaulle Airport, France","driving"]],
   hotel:"paris"},
  {n:2,date:"9.24",wd:"周四",city:"巴黎",color:"--cy",title:"卢浮宫 + 西岱岛 + 玛黑区",badge:"🎟️ 卢浮宫已订",
-  ev:[["早餐","酒店早餐后出发;地铁 12 号线转 1 号线约 20 分钟"],
+  ev:[["早餐","酒店订单不含早餐；在酒店附近用餐后出发，地铁 12 号线转 1 号线约 20 分钟"],
       ["11:30","🖼️ 卢浮宫已订:断臂维纳斯、胜利女神、蒙娜丽莎、拿破仑加冕等重点展品"],
       ["14:30","卢浮宫附近午餐或甜点;按体力选择法餐、越南粉或日料"],
       ["16:00","前往西岱岛;巴黎圣母院按最新版计划看外观"],
@@ -491,7 +494,7 @@ const DAYS=[
   maps:[["特罗卡德罗","Place du Trocadéro, Paris"],["凯旋门","Arc de Triomphe, Paris"],["香街 LV","Louis Vuitton Maison Champs Élysées, Paris"],["老佛爷","Galeries Lafayette Haussmann, Paris"],["巴黎春天","Printemps Haussmann, Paris"],["Les Ombres","Les Ombres Paris"]],
   note:"第二天上午赶火车，今晚顺路买好车上吃的面包和简餐。",hotel:"paris"},
  {n:4,date:"9.26",wd:"周六",city:"巴黎→尼斯",color:"--pp",title:"巴黎 → 尼斯(直达高铁)",badge:"🚄 转场约6h",
-  ev:[["早餐","酒店早餐或提前买好的面包，退房前确认随身行李"],
+  ev:[["早餐","酒店订单不含早餐；在附近用餐或吃提前买好的面包，退房前确认随身行李"],
       ["出发","前往巴黎里昂站;6 人接送仍待确认"],
       ["11:22","🚄 已订直达 TGV 前往尼斯，午餐在车上解决"],
       ["傍晚","抵达 Nice-Ville;步行约 10 分钟到酒店办理入住"],
@@ -507,17 +510,17 @@ const DAYS=[
       ["夜间","按体力选择鸡尾酒吧、现场乐队酒吧或回酒店休息"]],
   maps:[["萨雷亚市场","Cours Saleya, Nice"],["尼斯圣母殿","Basilique Notre-Dame de l'Assomption, Nice"],["马塞纳广场","Place Masséna, Nice"],["尼斯老城","Vieux Nice"],["城堡山电梯","Ascenseur du Château, Nice"],["I Love Nice","I Love Nice sign"],["Le Galet","Le Galet, Nice"]],
   note:"最新版取消埃兹、自由城和摩纳哥，把这一天完整留给尼斯。老城重点尝 socca、gelato 和咖啡。",hotel:"nice"},
- {n:6,date:"9.28",wd:"周一",city:"尼斯→佛罗伦萨",color:"--pk",title:"尼斯 → 芒通 → 佛罗伦萨",badge:"🚐 包车已订",
-  ev:[["上午","酒店退房，已订跨境包车从尼斯出发"],
-      ["约40min","抵达芒通:海滩→黄色阶梯→圣米歇尔教堂→老街→观景点"],
-      ["午餐","芒通停留 2–3 小时，午餐可选海鲜意面"],
-      ["下午","芒通→佛罗伦萨，车程约 5 小时"],
+ {n:6,date:"9.28",wd:"周一",city:"尼斯→佛罗伦萨",color:"--pk",title:"尼斯 → 芒通（待确认）→ 佛罗伦萨",badge:"🚐 主路线已订",
+  ev:[["上午","酒店早餐后退房，乘已订跨境包车从尼斯出发"],
+      ["计划","包车订单仅写尼斯→佛罗伦萨；先与司机确认是否可停芒通 2–3 小时"],
+      ["如获确认","约 40 分钟抵达芒通：海滩→黄色阶梯→圣米歇尔教堂→老街→观景点"],
+      ["下午","从芒通继续前往佛罗伦萨，行车约 4.5–5 小时"],
       ["抵达","办理入住，视路况决定是否先休息再赴晚餐"],
       ["20:00","已订 Trattoria Dall'Oste Chianineria T 骨牛排晚餐"]],
   maps:[["芒通海滩","Plage des Sablettes, Menton"],["圣米歇尔教堂","Basilique Saint-Michel Archange, Menton"],["芒通老城","Old Town Menton"],["芒通观景点","Menton Viewpoint, France"],["T骨牛排晚餐","Trattoria Dall'Oste Chianineria, Florence"]],
-  note:"最新版不再经过摩纳哥。跨境包车已订 €900 / 6 人。",hotel:"florence"},
+  note:"包车订单确认的是尼斯→佛罗伦萨，未写明芒通停留。芒通行程须先得到司机确认；若不能停留则直接前往佛罗伦萨。50% 定金已付，余款须在出发前 7 天支付。",hotel:"florence"},
  {n:7,date:"9.29",wd:"周二",city:"佛罗伦萨",color:"--pk",title:"圣母百花 + 乌菲兹 + 日落",badge:"🎟️ 两个时段已订",
-  ev:[["早餐","酒店附近咖啡厅;可试开心果羊角面包"],
+  ev:[["早餐","酒店订单含早餐；也可在附近咖啡厅尝开心果羊角面包"],
       ["11:00","⛪ 圣母百花已订:先登穹顶，再看博物馆;钟楼按体力决定"],
       ["13:30","教堂附近午餐，或中央市场 / All'Antico Vinaio 快速解决"],
       ["15:00","🖼️ 乌菲兹已订:先看二楼精华，再到一楼，预计约 2 小时"],
@@ -529,7 +532,7 @@ const DAYS=[
   ev:[["早餐","酒店早餐后退房，前往 Firenze SMN;可在车站买三明治"],
       ["10:48","🚄 已订高铁前往 Napoli Centrale"],
       ["14:03","抵达那不勒斯，打车约 20 分钟前往 Molo Beverello"],
-      ["下午","⛴️ 已订轮渡前往卡普里;出发前再次确认码头和海况"],
+      ["16:30","⛴️ 已订 NLG JET 从 Molo Beverello 前往卡普里；至少提前 20 分钟到达"],
       ["抵达","Marina Grande→卡普里镇;酒店接驳与缆索车方案待确认"],
       ["晚餐","海景意大利菜 / 海鲜;21:00 前可逛 Piazzetta 周边商店"]],
   maps:[["佛罗伦萨车站","Firenze Santa Maria Novella Station","transit"],["那不勒斯车站","Napoli Centrale","transit"],["贝韦雷洛码头","Molo Beverello, Naples","transit"],["卡普里大码头","Marina Grande, Capri"],["卡普里广场","Piazzetta di Capri"]],
@@ -545,13 +548,13 @@ const DAYS=[
   note:"六人乘敞篷出租比公交更省时间。蓝洞和海滩俱乐部只选其一，避免行程过满。",hotel:"capri"},
  {n:10,date:"10.2",wd:"周五",city:"卡普里→罗马",color:"--am",title:"卡普里 → 波西塔诺 → 罗马",badge:"⛴️🚙 转场",
   ev:[["早餐","酒店早餐后退房，带全部行李前往码头"],
-      ["上午","⛴️ 已订轮渡前往波西塔诺，上岸后先寄存行李"],
+      ["11:15","⛴️ 已订 Positano Jet 2 前往波西塔诺；至少提前 30 分钟到 Marina Grande 登船"],
       ["中午","柠檬镜子→教堂→水果店→Via Cristoforo Colombo 观景台"],
       ["午餐","沿主路选择海景餐厅、披萨或柠檬雪葩"],
       ["下午","与已订包车司机完成行李交接，前往罗马"],
       ["晚上","办理入住后夜游 Trastevere:晚餐、小吃、gelato 与街头氛围"]],
   maps:[["波西塔诺码头","Positano Ferry Terminal"],["柠檬镜子","Ceramica Assunta, Positano"],["圣母升天教堂","Church of Santa Maria Assunta, Positano"],["观景台","Via Cristoforo Colombo 175, Positano"],["特拉斯提弗列","Trastevere, Rome"],["Trilussa广场","Piazza Trilussa, Rome"]],
-  note:"波西塔诺台阶多且带全部行李，寄存地址与司机上车点必须提前在群里确认。",hotel:"rome"},
+  note:"船票总价为 €174 / 6 人（含 6 件大件行李）。波西塔诺台阶多，寄存地址与包车上车点必须提前确认。",hotel:"rome"},
  {n:11,date:"10.3",wd:"周六",city:"罗马",color:"--am",title:"圣天使堡 + 圣彼得 + 梵蒂冈",badge:"🎟️ 17:00 已订",
   ev:[["早餐","酒店早餐后出发"],
       ["上午","圣天使堡外观、台伯河散步，顺路拍圣彼得穹顶机位"],
@@ -586,32 +589,32 @@ const EN_DAYS=[
   ev:[["22:30","Land at Charles de Gaulle Airport (CDG); allow about 1 hour for immigration and baggage"],["23:45","Pre-booked transfer for 6 directly to the hotel (<em>€120, pay on site</em>)"],["00:30","Check in and rest; <em>no activities tonight</em>"]],
   maps:["Charles de Gaulle Airport"],note:"Keep passports and the driver’s contact details easy to reach after landing."},
  {wd:"Thu",city:"Paris",title:"Louvre + Île de la Cité + Le Marais",badge:"🎟️ Louvre booked",
-  ev:[["Breakfast","Leave after breakfast; Metro line 12 then line 1, about 20 minutes"],["11:30","🖼️ Louvre booking: Venus de Milo, Winged Victory, Mona Lisa, Coronation of Napoleon and other highlights"],["14:30","Lunch or dessert near the Louvre; choose French, Vietnamese or Japanese food depending on energy"],["16:00","Continue to Île de la Cité; view Notre-Dame from outside under the latest plan"],["17:00","Optional Shakespeare and Company, or go straight to Le Marais for shops and gelato"],["20:00","Booked dinner at Qui Plume la Lune; optional cocktail bar afterwards"]],
+  ev:[["Breakfast","Breakfast is not included in the hotel booking; eat nearby, then take Metro line 12 and line 1, about 20 minutes"],["11:30","🖼️ Louvre booking: Venus de Milo, Winged Victory, Mona Lisa, Coronation of Napoleon and other highlights"],["14:30","Lunch or dessert near the Louvre; choose French, Vietnamese or Japanese food depending on energy"],["16:00","Continue to Île de la Cité; view Notre-Dame from outside under the latest plan"],["17:00","Optional Shakespeare and Company, or go straight to Le Marais for shops and gelato"],["20:00","Booked dinner at Qui Plume la Lune; optional cocktail bar afterwards"]],
   maps:["Louvre Museum","Notre-Dame","Shakespeare and Company","Le Marais","Dinner"],note:"Sainte-Chapelle is still optional. The underground entrance from Palais Royal–Musée du Louvre is usually more efficient."},
  {wd:"Fri",city:"Paris",title:"Eiffel Tower photos + shopping",badge:"West Paris route",
   ev:[["Morning","🗼 Brunch and street photos around Trocadéro, then classic Eiffel Tower viewpoints"],["Lunch","Lunch near the Champs-Élysées / Arc de Triomphe; visit the LV flagship and the Arc"],["16:00","Vintage football-shirt shop reservation, 16:00–16:15"],["Afternoon","Split for shopping: Galeries Lafayette / Printemps, or designer shops in Le Marais"],["Optional","Seine cruise; decide on tickets based on the day’s pace"],["20:30","Booked Eiffel-view dinner at Les Ombres"]],
   maps:["Trocadéro","Arc de Triomphe","Champs-Élysées LV","Galeries Lafayette","Printemps","Les Ombres"],note:"Buy bread or a light meal for tomorrow’s train before returning to the hotel."},
  {wd:"Sat",city:"Paris → Nice",title:"Paris → Nice by direct train",badge:"🚄 About 6h in transit",
-  ev:[["Breakfast","Hotel breakfast or bread bought in advance; check carry-on items before checkout"],["Depart","Travel to Gare de Lyon; transfer for 6 still needs confirmation"],["11:22","🚄 Booked direct TGV to Nice; have lunch on the train"],["Evening","Arrive at Nice-Ville and walk about 10 minutes to check in"],["Dinner","Choose seafood, French, Italian or Indonesian food near the hotel"]],
+  ev:[["Breakfast","Breakfast is not included in the hotel booking; eat nearby or have bread bought in advance, then check carry-on items"],["Depart","Travel to Gare de Lyon; transfer for 6 still needs confirmation"],["11:22","🚄 Booked direct TGV to Nice; have lunch on the train"],["Evening","Arrive at Nice-Ville and walk about 10 minutes to check in"],["Dinner","Choose seafood, French, Italian or Indonesian food near the hotel"]],
   maps:["Paris Gare de Lyon","Nice-Ville station"],note:"Train tickets are confirmed; only the hotel-to-station transfer still needs attention."},
  {wd:"Sun",city:"French Riviera",title:"Old Nice + Castle Hill + Baie des Anges",badge:"🌊 Easy city day",
   ev:[["Morning","Hotel breakfast, or visit Cours Saleya market before it closes around noon"],["Noon","Optional Notre-Dame Basilica → Avenue Jean Médecin → Place Masséna → Old Nice"],["Afternoon","Take the free lift to Castle Hill for views over the red roofs and Baie des Anges"],["Evening","Walk down past the I Love Nice sign and relax by the Promenade des Anglais"],["19:00","Booked seaside dinner at Le Galet"],["Night","Choose a cocktail bar, live-music bar or an early night depending on energy"]],
   maps:["Cours Saleya Market","Notre-Dame Basilica","Place Masséna","Old Nice","Castle Hill lift","I Love Nice","Le Galet"],note:"Èze, Villefranche and Monaco are no longer included; keep the full day for Nice. Try socca, gelato and coffee in the old town."},
- {wd:"Mon",city:"Nice → Florence",title:"Nice → Menton → Florence",badge:"🚐 Private transfer booked",
-  ev:[["Morning","Check out; depart Nice in the booked cross-border vehicle"],["About 40 min","Reach Menton: beach → yellow stairs → Saint-Michel Basilica → old streets → viewpoint"],["Lunch","Stay 2–3 hours in Menton; seafood pasta is an easy lunch option"],["Afternoon","Menton to Florence, about 5 hours by road"],["Arrival","Check in; decide whether to rest before dinner based on traffic"],["20:00","Booked T-bone steak dinner at Trattoria Dall'Oste Chianineria"]],
-  maps:["Menton beach","Saint-Michel Basilica","Menton Old Town","Menton viewpoint","T-bone steak dinner"],note:"The latest route skips Monaco. The €900 private transfer for 6 is booked."},
+ {wd:"Mon",city:"Nice → Florence",title:"Nice → Menton (to confirm) → Florence",badge:"🚐 Main route booked",
+  ev:[["Morning","Check out after the included hotel breakfast and depart Nice in the booked cross-border vehicle"],["Plan","The chauffeur order states Nice → Florence only; first confirm whether a 2–3 hour Menton stop is permitted"],["If confirmed","Reach Menton in about 40 minutes: beach → yellow stairs → Saint-Michel Basilica → old streets → viewpoint"],["Afternoon","Continue from Menton to Florence, about 4.5–5 hours by road"],["Arrival","Check in; decide whether to rest before dinner based on traffic"],["20:00","Booked T-bone steak dinner at Trattoria Dall'Oste Chianineria"]],
+  maps:["Menton beach","Saint-Michel Basilica","Menton Old Town","Menton viewpoint","T-bone steak dinner"],note:"The chauffeur order confirms Nice → Florence but does not mention the Menton stop. Obtain driver confirmation first; otherwise travel directly to Florence. A 50% deposit has been paid and the balance is due seven days before departure."},
  {wd:"Tue",city:"Florence",title:"Duomo + Uffizi + sunset",badge:"🎟️ Two timed entries booked",
-  ev:[["Breakfast","Coffee near the hotel; try a pistachio croissant"],["11:00","⛪ Duomo booking: climb the dome first, then visit the museum; Giotto’s Bell Tower only if energy allows"],["13:30","Lunch near the cathedral, or a quick meal at Mercato Centrale / All’Antico Vinaio"],["15:00","🖼️ Uffizi booking: second-floor highlights first, then the first floor; allow about 2 hours"],["Evening","Taxi or walk to Piazzale Michelangelo for sunset"],["Dinner","Tuscan food nearby; optional Locale Firenze or Gucci Giardino after returning downtown"]],
+  ev:[["Breakfast","Breakfast is included in the hotel booking; a nearby café and pistachio croissant are optional"],["11:00","⛪ Duomo booking: climb the dome first, then visit the museum; Giotto’s Bell Tower only if energy allows"],["13:30","Lunch near the cathedral, or a quick meal at Mercato Centrale / All’Antico Vinaio"],["15:00","🖼️ Uffizi booking: second-floor highlights first, then the first floor; allow about 2 hours"],["Evening","Taxi or walk to Piazzale Michelangelo for sunset"],["Dinner","Tuscan food nearby; optional Locale Firenze or Gucci Giardino after returning downtown"]],
   maps:["Florence Duomo","Central Market","Uffizi Gallery","Piazzale Michelangelo","Locale Firenze","Gucci Giardino"],note:"The dome has about 460 steps and narrow passages. Climbing the bell tower on the same day may be too tiring."},
  {wd:"Wed",city:"Florence → Capri",title:"Florence → Capri by train + ferry",badge:"🚄⛴️ Major transfer day",
-  ev:[["Breakfast","Check out after breakfast and go to Firenze SMN; buy sandwiches at the station if useful"],["10:48","🚄 Booked high-speed train to Napoli Centrale"],["14:03","Arrive in Naples; taxi about 20 minutes to Molo Beverello"],["Afternoon","⛴️ Booked ferry to Capri; reconfirm pier and sea conditions before departure"],["Arrival","Marina Grande → Capri town; hotel transfer or funicular plan still to be confirmed"],["Dinner","Italian food or seafood with a view; shops around the Piazzetta may be open until 21:00"]],
+  ev:[["Breakfast","Check out after the included hotel breakfast and go to Firenze SMN; buy sandwiches at the station if useful"],["10:48","🚄 Booked high-speed train to Napoli Centrale"],["14:03","Arrive in Naples; taxi about 20 minutes to Molo Beverello"],["16:30","⛴️ Booked NLG JET from Molo Beverello to Capri; arrive at least 20 minutes early"],["Arrival","Marina Grande → Capri town; hotel transfer or funicular plan still to be confirmed"],["Dinner","Italian food or seafood with a view; shops around the Piazzetta may be open until 21:00"]],
   maps:["Florence SMN station","Napoli Centrale","Molo Beverello","Marina Grande Capri","Piazzetta Capri"],note:"Train and ferry are booked. Do not add a Naples stop during the connection; catching the ferry comes first."},
  {wd:"Thu",city:"Capri",title:"A full day on Capri",badge:"🏝️ Slow island day",
   ev:[["Breakfast","Walk to the Gardens of Augustus after hotel breakfast"],["Morning","Gardens of Augustus + free Via Krupp hairpin viewpoint; midday light is best for photos"],["Noon","Open-top taxi to Anacapri for lunch and shopping in the town centre"],["Afternoon","Round-trip chairlift to Monte Solaro for island-wide views"],["Optional","Visit the Blue Grotto only if conditions are good; otherwise shop in Capri or relax at a beach club"],["Dinner","Sunset restaurant in Anacapri or a seaside restaurant at Marina Piccola"]],
   maps:["Gardens of Augustus","Anacapri","Monte Solaro chairlift","Blue Grotto","La Fontelina","Lido del Faro","Marina Piccola"],note:"An open-top taxi saves time for six people. Choose either the Blue Grotto or a beach club to keep the day relaxed."},
  {wd:"Fri",city:"Capri → Rome",title:"Capri → Positano → Rome",badge:"⛴️🚙 Transfer day",
-  ev:[["Breakfast","Check out after breakfast and take all luggage to the port"],["Morning","⛴️ Booked ferry to Positano; store luggage immediately after landing"],["Noon","Lemon mirror → church → fruit shop → Via Cristoforo Colombo viewpoint"],["Lunch","Choose a sea-view restaurant, pizza or lemon sorbet along the main route"],["Afternoon","Meet the booked driver, hand over luggage and continue to Rome"],["Evening","Check in, then explore Trastevere for dinner, snacks, gelato and street life"]],
-  maps:["Positano ferry terminal","Lemon mirror","Santa Maria Assunta Church","Viewpoint","Trastevere","Piazza Trilussa"],note:"Positano has many stairs and you will have all luggage. Confirm storage and the driver pickup point in advance."},
+  ev:[["Breakfast","Check out after the included hotel breakfast and take all luggage to the port"],["11:15","⛴️ Booked Positano Jet 2 to Positano; arrive at Marina Grande at least 30 minutes early"],["Noon","Lemon mirror → church → fruit shop → Via Cristoforo Colombo viewpoint"],["Lunch","Choose a sea-view restaurant, pizza or lemon sorbet along the main route"],["Afternoon","Meet the booked driver, hand over luggage and continue to Rome"],["Evening","Check in, then explore Trastevere for dinner, snacks, gelato and street life"]],
+  maps:["Positano ferry terminal","Lemon mirror","Santa Maria Assunta Church","Viewpoint","Trastevere","Piazza Trilussa"],note:"The ferry total is €174 for 6 travelers, including 6 large luggage items. Positano has many stairs; confirm luggage storage and the chauffeur pickup point in advance."},
  {wd:"Sat",city:"Rome",title:"Castel Sant’Angelo + St Peter’s + Vatican",badge:"🎟️ 17:00 booked",
   ev:[["Breakfast","Leave after hotel breakfast"],["Morning","See Castel Sant’Angelo from outside, walk by the Tiber and photograph the dome of St Peter’s"],["Lunch","Pasta, wraps or Sichuan food near the Vatican; watch the timed-entry schedule"],["Afternoon","St Peter’s Square + Basilica; allow time for security queues"],["17:00","⛪ Vatican Museums booking: Pinecone Courtyard → Laocoön → galleries → Raphael Rooms → Sistine Chapel"],["Dinner","Eat nearby after the museum visit"]],
   maps:["Castel Sant’Angelo","Dome photo point","St Peter’s Square","St Peter’s Basilica","Vatican Museums"],note:"Shoulders and knees must be covered in churches. Allow 3–4 hours for the museums and avoid another distant attraction."},
@@ -624,11 +627,11 @@ const EN_DAYS=[
 ];
 
 const HOTELS={
-  paris:{name:"Best Western Hotel Le Montparnasse",address:"37 Boulevard du Montparnasse, 75006 Paris, France"},
-  nice:{name:"Le Riviera Collection, BW Signature Collection",address:"36 Rue Rossini, 06000 Nice, France"},
-  florence:{name:"Hotel Bonifacio",address:"Via Bonifacio Lupi, 21, 50129 Firenze FI, Italy"},
-  capri:{name:"Hotel Della Piccola Marina",address:"Via Mulo, 14–16, 80073 Capri NA, Italy"},
-  rome:{name:"Hotel Santa Prisca",address:"Largo Manlio Gelsomini, 25, 00153 Roma RM, Italy"},
+  paris:{name:"Best Western Hotel Le Montparnasse",address:"37 Boulevard du Montparnasse, 75006 Paris, France",phone:"+33 1 45 44 85 37",tel:"+33145448537"},
+  nice:{name:"Le Riviera Collection, BW Signature Collection",address:"36 Rue Rossini, 06000 Nice, France",phone:"+33 4 22 13 50 21",tel:"+33422135021"},
+  florence:{name:"Hotel Bonifacio",address:"Via Bonifacio Lupi, 21, 50129 Firenze FI, Italy",phone:"+39 055 462 7133",tel:"+390554627133"},
+  capri:{name:"Hotel Della Piccola Marina",address:"Via Mulo, 14–16, 80073 Capri NA, Italy",phone:"+39 081 837 9642",tel:"+390818379642"},
+  rome:{name:"Hotel Santa Prisca",address:"Largo Manlio Gelsomini, 25, 00153 Roma RM, Italy",phone:"+39 06 574 1917",tel:"+39065741917"},
 };
 
 const STATIC_EN=[
@@ -655,11 +658,11 @@ const STATIC_EN=[
  ['#transport td',[
   "CDG → Paris hotel","Pre-booked transfer for 6","Door-to-door after landing; €120 payable on site; confirm driver details one day ahead",
   "Paris → Nice","Booked direct TGV · 11:22","Buy lunch before boarding; hotel-to-station transfer for 6 still needs confirmation",
-  "Nice → Menton → Florence","Booked cross-border transfer","Stop in Menton for 2–3 hours, then about 5 hours to Florence",
+  "Nice → Florence (planned Menton stop)","Booked cross-border transfer","The order confirms Nice → Florence; reconfirm the planned 2–3 hour Menton stop with the chauffeur",
   "Florence → Naples","Booked high-speed train · 10:48–14:03","Taxi from Napoli Centrale to Molo Beverello",
-  "Naples → Capri","Booked ferry","Board at Molo Beverello; reconfirm pier, sailing and sea conditions that day",
+  "Naples → Capri","NLG JET · 16:30","Board at Molo Beverello; arrive at least 20 minutes early and reconfirm sea conditions that day",
   "Around Capri","Funicular / bus / open-top taxi","Use the funicular to Capri town; an open-top taxi works well for 5–6 people to Anacapri",
-  "Capri → Positano","Booked ferry","Take all luggage off the island; store it before sightseeing",
+  "Capri → Positano","Positano Jet 2 · 11:15","Board directly at Marina Grande and arrive at least 30 minutes early; store luggage after landing",
   "Positano → Rome","Booked private transfer","Confirm luggage handover and pickup point with the driver",
   "Rome → FCO","Private transfer to confirm","Allow enough time for international check-in and tax refund"
  ]],
@@ -673,23 +676,23 @@ const STATIC_EN=[
   "25 Sep · Paris","Metro + walking + short taxi","Stay flexible between the Eiffel Tower, Champs-Élysées and shopping areas",
   "26 Sep · Paris → Nice","Direct TGV","<span class='em'>Booked · €432 for 6, about €72 each</span>",
   "27 Sep · Nice","Walking","Old Nice, Castle Hill and the waterfront form one easy route",
-  "28 Sep · Nice → Florence","Cross-border transfer","<span class='em'>Booked · €900 for 6, about €150 each</span>",
+  "28 Sep · Nice → Florence","Cross-border transfer","<span class='em'>Order confirmed; 50% deposit paid</span>; reconfirm the Menton stop",
   "29 Sep · Florence","Walking + taxi for sunset","About 500 m between the Duomo and Uffizi",
   "30 Sep · Florence → Capri","Train + taxi + ferry","Train €215.40 and ferry €216 for 6; both booked",
   "1 Oct · Capri","Open-top taxi + chairlift","Taxi about €30 per vehicle; Monte Solaro chairlift about €14 each",
-  "2 Oct · Capri → Positano → Rome","Ferry + private transfer","Ferry €209.50 and transfer €900 for 6; both booked",
+  "2 Oct · Capri → Positano → Rome","Ferry + private transfer","Ferry <span class='em'>€174 for 6</span>; chauffeur order confirmed and 50% deposit paid",
   "3 Oct · Rome / Vatican","Walking + short taxi","Vatican Museums tickets <span class='em'>booked · €150 for 6</span>",
   "4 Oct · Rome","Mostly walking","Colosseum free-entry day; allow for queues",
   "5 Oct · Rome → FCO","Private transfer for 6","<span class='em'>To confirm</span>"
  ]],
- ['#costs .note',["💰 The 28 Sep cross-border transfer, 30 Sep train and ferry, and 2 Oct ferry and transfer are confirmed. Current priorities are the <b>Paris hotel → station, Capri port → hotel, and Rome hotel → FCO</b> connections."]],
+ ['#costs .note',["💰 The 28 Sep and 2 Oct chauffeur orders are confirmed with a 50% deposit paid; the 30 Sep train and both ferries are ticketed. Current priorities are the <b>28 Sep Menton stop, Paris hotel → station, Capri port → hotel, and Rome hotel → FCO</b> connections."]],
  ['#booking h2.sec',["Booking status · latest update"]],
  ['#booking p.sub',["Based on the latest itinerary; booking references, traveler names and contact details are not shown on this public page"]],
  ['#booking h3',["✅ Confirmed","🎟️ Tickets & restaurants booked","🟡 Still to confirm"]],
  ['#booking li',[
   "<b>Hotels</b> in Paris, Nice, Florence, Capri and Rome","23 Sep · <b>Paris airport pickup</b>","26 Sep · <b>Paris → Nice TGV</b>","28 Sep · <b>Nice → Florence private transfer</b>","30 Sep · <b>Florence → Naples train</b> and Capri ferry","2 Oct · <b>Capri → Positano ferry</b> and Positano → Rome transfer",
   "24 Sep · <b>Louvre 11:30</b> and dinner 20:00","25 Sep · vintage football shop 16:00–16:15 and <b>Les Ombres 20:30</b>","27 Sep · <b>Le Galet 19:00</b>","28 Sep · Florence T-bone dinner 20:00","29 Sep · <b>Duomo 11:00 and Uffizi 15:00</b>","3 Oct · <b>Vatican Museums 17:00</b>; 4 Oct dinner 19:45",
-  "Transfer for 6 from <b>Paris hotel to station</b>","Whether to add <b>Sainte-Chapelle</b> on 24 Sep; Notre-Dame is exterior only","Whether to buy a <b>Seine cruise</b> on 25 Sep","<b>Hotel transfer or funicular</b> from Capri port","Whether to book a beach club or the Blue Grotto on 1 Oct","2 Oct Positano <b>luggage storage</b> and driver handoff; 5 Oct Rome → FCO transfer"
+  "The 28 Sep chauffeur order does not mention Menton; <b>reconfirm the stop and total duration</b>","Transfer for 6 from <b>Paris hotel to station</b>","Whether to add <b>Sainte-Chapelle</b> on 24 Sep; Notre-Dame is exterior only","Whether to buy a <b>Seine cruise</b> on 25 Sep","<b>Hotel transfer or funicular</b> from Capri port","Whether to book a beach club or the Blue Grotto on 1 Oct","2 Oct Positano <b>luggage storage</b> and driver handoff; 5 Oct Rome → FCO transfer"
  ]],
  ['#tips h2.sec',["Practical tips"]],
  ['#tips p.sub',["Review before departure for a smoother, more economical trip"]],
@@ -739,7 +742,7 @@ function renderMaps(maps=[],enLabels=[]){
 function renderHotel(key){
   const hotel=HOTELS[key];
   if(!hotel)return '';
-  return `<div class="stay"><div class="hotel-info"><span>🏨</span><span><b>${hotel.name}</b><span class="hotel-address">${hotel.address}</span></span></div><a class="hotel-nav" href="${mapUrl(`${hotel.name}, ${hotel.address}`,"driving")}" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps navigation to ${hotel.name}">${dual('导航到酒店','Hotel directions')}</a></div>`;
+  return `<div class="stay"><div class="hotel-info"><span>🏨</span><span><b>${hotel.name}</b><span class="hotel-address">${hotel.address}</span><span class="hotel-phone">☎ <a href="tel:${hotel.tel}" aria-label="Call ${hotel.name}">${hotel.phone}</a></span></span></div><a class="hotel-nav" href="${mapUrl(`${hotel.name}, ${hotel.address}`,"driving")}" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps navigation to ${hotel.name}">${dual('导航到酒店','Hotel directions')}</a></div>`;
 }
 
 function render(filter){
