@@ -31,6 +31,18 @@
   .nav-links{display:flex;gap:6px}
   .nav-in a{font-size:13px;color:var(--mut);padding:6px 11px;border-radius:20px;transition:.2s;white-space:nowrap}
   .nav-in a:hover{color:var(--txt);background:var(--card2)}
+  .lang-switch{display:flex;gap:3px;margin-left:6px;padding:3px;border:1px solid var(--line);border-radius:22px;background:var(--card)}
+  .lang-btn{border:0;background:transparent;color:var(--mut);font:inherit;font-size:11px;font-weight:750;padding:4px 8px;border-radius:16px;cursor:pointer}
+  .lang-btn.on{background:var(--grad);color:#07101b}
+  .lang-en{display:none}
+  body[data-lang="en"] .lang-zh{display:none!important}
+  body[data-lang="en"] .lang-en{display:inline}
+  body[data-lang="bi"] .lang-en{display:block;color:var(--mut);font-size:.86em;line-height:1.45;margin-top:2px;font-weight:500}
+  body[data-lang="bi"] .nav-links .lang-en,body[data-lang="bi"] .lang-switch .lang-en{display:inline;color:inherit;font-size:inherit;margin:0}
+  body[data-lang="bi"] .nav-links .lang-en::before{content:" / "}
+  body[data-lang="bi"] .tm .lang-en,body[data-lang="bi"] .t2 .lang-en,body[data-lang="bi"] b>.lang-en{display:inline;color:inherit;font-size:inherit;margin:0}
+  body[data-lang="bi"] .tm .lang-en::before,body[data-lang="bi"] .t2 .lang-en::before,body[data-lang="bi"] b>.lang-en::before{content:" / "}
+  body[data-lang="bi"] .hero h1>.lang-en{font-size:.52em;margin-top:10px}
 
   .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
   section{padding:54px 0;scroll-margin-top:64px}
@@ -97,9 +109,20 @@
   .ev .dx .em{color:var(--am)}
   .note{margin-top:14px;font-size:12.5px;color:var(--mut);background:var(--card2);
     border-left:3px solid var(--pp);padding:9px 12px;border-radius:0 10px 10px 0}
-  .stay{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:12.5px;
+  .stay{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px;font-size:12.5px;
     color:var(--gr);background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);
-    padding:5px 11px;border-radius:10px}
+    padding:10px 12px;border-radius:10px}
+  .hotel-info{display:flex;align-items:flex-start;gap:8px;min-width:0}
+  .hotel-address{display:block;color:var(--mut);font-weight:400;margin-top:2px;overflow-wrap:anywhere}
+  .hotel-nav{flex:none;color:var(--gr);border:1px solid rgba(52,211,153,.35);border-radius:18px;padding:6px 10px;font-weight:700}
+  .hotel-nav:hover{color:#08101e;background:var(--gr)}
+  .mapbox{margin-top:14px;padding:12px;background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.2);border-radius:12px}
+  .maptitle{font-size:12px;color:var(--mut);font-weight:700;margin-bottom:8px;letter-spacing:.4px}
+  .maplinks{display:flex;gap:7px;flex-wrap:wrap}
+  .maplink{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border-radius:18px;
+    color:var(--cy);background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.28);
+    font-size:12px;font-weight:650;transition:.2s}
+  .maplink:hover{color:#08101e;background:var(--cy);border-color:var(--cy)}
 
   /* GENERIC CARDS */
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
@@ -111,6 +134,23 @@
   .gc li::before{content:"";position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--cy)}
   .gc li b{color:var(--txt)}
   .em{color:var(--am)}
+
+  /* EMERGENCY */
+  .sos-banner{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+  .sos-number{background:linear-gradient(145deg,rgba(244,114,182,.12),var(--card));border:1px solid rgba(244,114,182,.35);border-radius:15px;padding:15px;text-align:center}
+  .sos-number .num{font-size:26px;font-weight:900;color:var(--pk);line-height:1.1}
+  .sos-number .what{font-size:12px;color:var(--mut);margin-top:5px}
+  .emergency-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+  .emergency-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px}
+  .emergency-card h3{font-size:15px;margin-bottom:10px}
+  .emergency-card p{font-size:12.5px;color:var(--mut);margin:5px 0}
+  .emergency-card p b{color:var(--txt)}
+  .quick-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+  .quick-actions a{font-size:12px;font-weight:750;border:1px solid var(--line);border-radius:18px;padding:6px 10px;color:var(--cy)}
+  .quick-actions a:hover{background:var(--cy);color:#07101b;border-color:var(--cy)}
+  .country-label{display:inline-block;font-size:11px;font-weight:800;color:#08101e;border-radius:12px;padding:2px 8px;margin-bottom:8px;background:var(--cy)}
+  .country-label.it{background:var(--gr)}
+  .source-note{font-size:11.5px;color:var(--mut);margin-top:14px}
 
   /* TRANSPORT TABLE */
   .ttbl{width:100%;border-collapse:collapse;font-size:13.5px;overflow:hidden;border-radius:14px;min-width:560px}
@@ -139,6 +179,7 @@
       scrollbar-width:none;-ms-overflow-style:none;justify-content:flex-start}
     .nav-links::-webkit-scrollbar{display:none}
     .nav-in a{flex:none;background:var(--card);border:1px solid var(--line);padding:6px 13px;font-size:12.5px}
+    .lang-switch{margin:0 auto}
     section{scroll-margin-top:96px}
 
     /* HERO */
@@ -148,6 +189,10 @@
     .chip{padding:6px 12px;font-size:12px}
     .stats{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
     .stat .n{font-size:26px}
+    .maplink{padding:7px 11px;font-size:12.5px}
+    .stay{align-items:flex-start;flex-direction:column}
+    .hotel-nav{margin-left:25px}
+    .sos-banner{grid-template-columns:1fr}
 
     /* layout */
     .leg{margin-right:30px}
@@ -160,7 +205,7 @@
   }
 </style>
 </head>
-<body>
+<body data-lang="bi">
 
 <nav>
   <div class="nav-in">
@@ -170,9 +215,15 @@
       <a href="#daily">每日行程</a>
       <a href="#transport">交通</a>
       <a href="#costs">花费</a>
-      <a href="#booking">必订</a>
+      <a href="#booking">预订进度</a>
+      <a href="#emergency">应急</a>
       <a href="#tips">贴士</a>
       <a href="#feedback">反馈</a>
+    </div>
+    <div class="lang-switch" role="group" aria-label="页面语言 / Page language">
+      <button class="lang-btn" data-set-lang="zh">中文</button>
+      <button class="lang-btn" data-set-lang="en">EN</button>
+      <button class="lang-btn on" data-set-lang="bi">双语</button>
     </div>
   </div>
 </nav>
@@ -184,9 +235,9 @@
   <div class="route"><b>巴黎</b> → 蔚蓝海岸 → <b>佛罗伦萨</b> → 卡普里 → <b>罗马</b></div>
   <div class="meta-row">
     <span class="chip">📅 <b>9.23 → 10.5</b></span>
-    <span class="chip">👨‍👩‍👧‍👧 <b>6 人</b>(2男4女)</span>
+    <span class="chip">👥 <b>6 人同行</b></span>
     <span class="chip">🧳 行李多 · <b>全程不自驾</b></span>
-    <span class="chip">🛌 每天 <b>约11点</b> 慢出发</span>
+    <span class="chip">✅ 机酒与核心门票 <b>大多已订</b></span>
   </div>
   <div class="stats">
     <div class="stat"><div class="n">13</div><div class="l">天</div></div>
@@ -203,29 +254,29 @@
   <div class="ribbon">
     <div class="leg"><span class="dot" style="background:var(--cy)"></span><span class="city">巴黎 Paris</span>
       <div class="days">Day 1–4 · 9.23–9.26</div>
-      <div class="desc">铁塔拍照 · 圣母院 · 卢浮宫 · 购物</div></div>
+      <div class="desc">卢浮宫 · 铁塔机位 · 香街购物</div></div>
     <div class="leg"><span class="dot" style="background:var(--pp)"></span><span class="city">尼斯 / 蔚蓝海岸</span>
       <div class="days">Day 4–6 · 9.26–9.28</div>
-      <div class="desc">埃兹 · 自由城 · 摩纳哥</div></div>
+      <div class="desc">尼斯老城 · 城堡山 · 天使湾 · 芒通</div></div>
     <div class="leg"><span class="dot" style="background:var(--pk)"></span><span class="city">佛罗伦萨</span>
       <div class="days">Day 6–8 · 9.28–9.30</div>
-      <div class="desc">圣母百花 · 乌菲兹 · 文艺复兴</div></div>
+      <div class="desc">圣母百花登顶 · 乌菲兹 · 日落</div></div>
     <div class="leg"><span class="dot" style="background:var(--gr)"></span><span class="city">卡普里岛</span>
       <div class="days">Day 8–10 · 9.30–10.2</div>
-      <div class="desc">缆车全岛 · 花园礁石 · 波西塔诺</div></div>
+      <div class="desc">奥古斯都花园 · 索拉罗山 · 波西塔诺</div></div>
     <div class="leg"><span class="dot" style="background:var(--am)"></span><span class="city">罗马 Roma</span>
       <div class="days">Day 10–13 · 10.2–10.5</div>
-      <div class="desc">梵蒂冈 · 斗兽场 · 许愿池</div></div>
+      <div class="desc">梵蒂冈夜场 · 斗兽场 · 罗马老城</div></div>
   </div>
   <div class="note" style="margin-top:18px">
-    ⏰ <b>时差提示</b>:北京→巴黎向西飞(慢6小时),通常早醒、晚上早困,头两天明显。所以全程从午前慢出发、不订早场票、晚餐不排太晚——早醒赖床都不浪费。真正难受的是<b>回北京后</b>那几天。
+    ⏰ <b>节奏提示</b>:大部分日期维持慢出发；9.26 赶 11:22 高铁、9.28 跨境包车、9.30 高铁转轮渡、10.4 斗兽场免费开放日需要早起。其余安排按体力和天气灵活取舍。
   </div>
 </section>
 
 <section id="daily" class="wrap">
   <div class="eyebrow">Day by Day</div>
   <h2 class="sec">逐日详细行程</h2>
-  <p class="sub">点击任意一天展开/收起 · 时间为建议参考,可按当天体力天气灵活增减</p>
+  <p class="sub">点击任意一天展开/收起 · 点击地点按钮可直接打开 Google Maps 导航</p>
   <div class="filters" id="filters"></div>
   <div class="days-grid" id="daysGrid"></div>
 </section>
@@ -233,86 +284,153 @@
 <section id="transport" class="wrap">
   <div class="eyebrow">Logistics</div>
   <h2 class="sec">交通策略</h2>
-  <p class="sub">为什么全程不自驾:跨国异地还车费 €600–850、意大利 ZTL 限行罚单、海岸公路+摩纳哥停车难、倒时差期间交给司机更安全。包车+高铁+轮渡,无需驾照公证翻译件。</p>
+  <p class="sub">全程不自驾：长途用已订高铁、轮渡和跨境包车；城市内以步行、地铁和短程打车为主。</p>
   <div class="scroll-hint">← 左右滑动查看完整表格 →</div>
   <div class="scroller">
   <table class="ttbl">
     <tr><th>路段</th><th>方式</th><th>说明</th></tr>
-    <tr><td>巴黎 → 尼斯</td><td class="way">直达高铁 TGV ·约6h</td><td>市中心到市中心,行李无重量限制/不收件费。<span class="em">⚠️ 直达每天约5班、多在上午到下午——订票先在 SNCF Connect 确认当天午后直达</span></td></tr>
-    <tr><td>尼斯附近一日</td><td class="way">包车游(带司机)</td><td>埃兹/自由城/摩纳哥;一天三地,不用找车位</td></tr>
-    <tr><td>尼斯 → 佛罗伦萨</td><td class="way">跨境包车</td><td>行李全在车上、门到门,中途停热那亚/圣玛格丽塔午餐</td></tr>
-    <tr><td>佛罗伦萨 → 那不勒斯</td><td class="way">高铁 Frecciarossa ·约3h</td><td>提前订连座、有行李架(部分直达,部分经罗马)</td></tr>
-    <tr><td>那不勒斯 → 卡普里</td><td class="way">轮渡 ·50–80min</td><td>Molo Beverello 港直接上岛,<span class="em">查末班+海况</span></td></tr>
-    <tr><td>卡普里 → 波西塔诺</td><td class="way">轮渡 ·约40min</td><td>10月初仍每日有班、末班约17:00;看海况</td></tr>
-    <tr><td>波西塔诺 → 罗马</td><td class="way">包车 ·3.5–4h</td><td>行李上车、门到门;<span class="em">波西塔诺台阶多,用 porter 或先到索伦托装车</span></td></tr>
-    <tr><td>罗马市区 → FCO</td><td class="way">包车 ·45–60min</td><td>20:00 航班,当天很从容</td></tr>
+    <tr><td>CDG → 巴黎酒店</td><td class="way">已订 6 人接机</td><td>落地后门到门，车费 €120 现场支付；提前一天确认司机信息</td></tr>
+    <tr><td>巴黎 → 尼斯</td><td class="way">已订直达 TGV · 11:22</td><td>当天提前买好午餐；酒店到车站的 6 人用车仍需确认</td></tr>
+    <tr><td>尼斯 → 芒通 → 佛罗伦萨</td><td class="way">已订跨境包车</td><td>芒通停留 2–3 小时，之后约 5 小时抵达佛罗伦萨</td></tr>
+    <tr><td>佛罗伦萨 → 那不勒斯</td><td class="way">已订高铁 · 10:48–14:03</td><td>抵达 Napoli Centrale 后打车前往 Molo Beverello 码头</td></tr>
+    <tr><td>那不勒斯 → 卡普里</td><td class="way">已订轮渡</td><td>Molo Beverello 上船；当天再次确认码头、班次与海况</td></tr>
+    <tr><td>卡普里岛内</td><td class="way">缆索车 / 公交 / 敞篷出租</td><td>码头至卡普里镇优先缆索车；去安娜卡普里建议 5–6 人敞篷出租</td></tr>
+    <tr><td>卡普里 → 波西塔诺</td><td class="way">已订轮渡</td><td>带全部行李离岛，上岸后先寄存行李再游览</td></tr>
+    <tr><td>波西塔诺 → 罗马</td><td class="way">已订包车</td><td>提前与司机确认行李交接和上车地点</td></tr>
+    <tr><td>罗马市区 → FCO</td><td class="way">包车待确认</td><td>国际航班与退税均需留足时间</td></tr>
   </table>
   </div>
 </section>
 
 <section id="costs" class="wrap">
   <div class="eyebrow">Daily Transport & Budget</div>
-  <h2 class="sec">每天怎么走 & 大概花费</h2>
-  <p class="sub">交通方式 + 粗略费用(欧元,仅供参考;包车/接送按实际报价,跨城更贵)</p>
+  <h2 class="sec">每天怎么走 & 已知交通费用</h2>
+  <p class="sub">按最新预订记录整理；仅列公开行程所需的合计与人均参考，不含住宿和个人消费</p>
   <div class="scroll-hint">← 左右滑动查看完整表格 →</div>
   <div class="scroller">
   <table class="ttbl">
-    <tr><th>日期</th><th>怎么走</th><th>大概花费</th></tr>
-    <tr><td>9.23 抵达</td><td class="way">预订小巴接送</td><td>CDG→巴黎酒店 €90–130(6人+行李)</td></tr>
-    <tr><td>9.24 巴黎</td><td class="way">地铁+步行+偶尔打车</td><td>地铁单程~€2.5/人、日票~€8/人</td></tr>
-    <tr><td>9.25 巴黎</td><td class="way">地铁+步行+打车</td><td>同上;打车一程~€15–25</td></tr>
-    <tr><td>9.26 巴黎→尼斯</td><td class="way">高铁(两端打车)</td><td>TGV ~€40–120/人(早订便宜)+ 两端打车各~€15–30</td></tr>
-    <tr><td>9.27 尼斯附近</td><td class="way">半日包车 或 打车</td><td>半日包车 ~€250–400;纯打车按段算</td></tr>
-    <tr><td>9.28 尼斯→佛罗伦萨</td><td class="way em">跨境包车·全天</td><td><span class="em">~€800–1100</span>(跨境+多停,务必比价)</td></tr>
-    <tr><td>9.29 佛罗伦萨</td><td class="way">步行为主+偶尔打车</td><td>打车一程~€10–15</td></tr>
-    <tr><td>9.30 佛→卡普里</td><td class="way">高铁+轮渡(+短途打车)</td><td>高铁~€30–60/人;那→卡轮渡~€23–28/人;站→港打车~€15–20</td></tr>
-    <tr><td>10.1 卡普里</td><td class="way">缆索车/岛上敞篷taxi</td><td>缆索车€2.4/人;Monte Solaro缆车~€15/人;岛上taxi~€20–30</td></tr>
-    <tr><td>10.2 卡→波→罗马</td><td class="way em">轮渡+包车</td><td>卡→波轮渡~€23–30/人;<span class="em">波西塔诺→罗马包车~€450–650</span></td></tr>
-    <tr><td>10.3 罗马·梵蒂冈</td><td class="way">步行+地铁+打车</td><td>地铁€1.5/人;打车一程~€10–15</td></tr>
-    <tr><td>10.4 罗马</td><td class="way">步行+地铁+打车</td><td>同上</td></tr>
-    <tr><td>10.5 罗马→FCO</td><td class="way">预订小巴/大车</td><td>6人小巴~€80–110(出租固定价€55仅限≤4人)</td></tr>
+    <tr><th>日期</th><th>怎么走</th><th>费用 / 状态</th></tr>
+    <tr><td>9.23 抵达</td><td class="way">6 人接机</td><td><span class="em">已订 €120</span>，现场支付</td></tr>
+    <tr><td>9.24 巴黎</td><td class="way">地铁 + 步行</td><td>酒店至卢浮宫约 20 分钟；其余按实际刷卡</td></tr>
+    <tr><td>9.25 巴黎</td><td class="way">地铁 + 步行 + 短程打车</td><td>铁塔、香街与购物区之间灵活安排</td></tr>
+    <tr><td>9.26 巴黎→尼斯</td><td class="way">直达 TGV</td><td><span class="em">已订 €432 / 6 人，约 €72/人</span></td></tr>
+    <tr><td>9.27 尼斯</td><td class="way">全程步行</td><td>老城、城堡山、天使湾同一条慢游路线</td></tr>
+    <tr><td>9.28 尼斯→佛罗伦萨</td><td class="way">跨境包车</td><td><span class="em">已订 €900 / 6 人，约 €150/人</span></td></tr>
+    <tr><td>9.29 佛罗伦萨</td><td class="way">步行 + 日落段打车</td><td>圣母百花、乌菲兹之间步行约 500 米</td></tr>
+    <tr><td>9.30 佛→卡普里</td><td class="way">高铁 + 打车 + 轮渡</td><td>高铁 €215.4 / 6 人；轮渡 €216 / 6 人，均已订</td></tr>
+    <tr><td>10.1 卡普里</td><td class="way">敞篷出租 + 缆车</td><td>岛内出租约 €30/车；索拉罗山缆车约 €14/人</td></tr>
+    <tr><td>10.2 卡→波→罗马</td><td class="way">轮渡 + 包车</td><td>轮渡 €209.5 / 6 人；包车 €900 / 6 人，均已订</td></tr>
+    <tr><td>10.3 罗马·梵蒂冈</td><td class="way">步行 + 短程打车</td><td>梵蒂冈博物馆门票 <span class="em">已订 €150 / 6 人</span></td></tr>
+    <tr><td>10.4 罗马</td><td class="way">步行为主</td><td>斗兽场免费开放日，需预留排队时间</td></tr>
+    <tr><td>10.5 罗马→FCO</td><td class="way">6 人包车</td><td><span class="em">待确认</span></td></tr>
   </table>
   </div>
-  <div class="note" style="margin-top:18px">💰 <b>必须包车</b>:9.28 尼斯→佛罗伦萨、10.2 波西塔诺→罗马;<b>9.23 / 10.5</b> 机场用预订大车;<b>9.27</b> 半日包车或打车。其余城市里<b>地铁 + 打车(6 人记得叫大车/Van)</b>即可,Uber/Bolt/FreeNow 都能叫 6 座 Van。费用为粗估,实际以车队/船司报价为准。</div>
+  <div class="note" style="margin-top:18px">💰 9.28 跨境包车、9.30 高铁与轮渡、10.2 轮渡与包车均已锁定；当前交通重点是确认<b>巴黎酒店→车站、卡普里码头→酒店、罗马酒店→FCO</b>三段接驳。</div>
 </section>
 
 <section id="booking" class="wrap">
   <div class="eyebrow">Checklist</div>
-  <h2 class="sec">必订清单 · 按时间排序</h2>
-  <p class="sub">越早订越省/越保险,把这几类先锁定</p>
+  <h2 class="sec">预订进度 · 最新同步</h2>
+  <p class="sub">根据最新版行程整理；预订编号、旅客姓名和联系方式不在公开页面展示</p>
   <div class="cards">
     <div class="gc">
-      <h3><span class="ic" style="background:rgba(244,114,182,.15)">🔴</span>现在就订</h3>
+      <h3><span class="ic" style="background:rgba(52,211,153,.15)">✅</span>已经锁定</h3>
       <ul>
-        <li><b>巴黎→尼斯直达 TGV</b>(午后班、连座)</li>
-        <li>尼斯<b>包车游</b>一天(注明6人多行李)</li>
-        <li>尼斯→佛罗伦萨<b>跨境包车</b></li>
-        <li>佛罗伦萨→那不勒斯<b>高铁</b></li>
-        <li>波西塔诺→罗马<b>包车</b>、罗马→FCO <b>接送</b></li>
-        <li>全部<b>住宿</b>(<span class="em">卡普里岛2晚、罗马3晚</span>尤其旺)</li>
+        <li>巴黎、尼斯、佛罗伦萨、卡普里、罗马的<b>住宿</b></li>
+        <li>9.23 <b>巴黎机场接机</b></li>
+        <li>9.26 <b>巴黎→尼斯 TGV</b></li>
+        <li>9.28 <b>尼斯→佛罗伦萨跨境包车</b></li>
+        <li>9.30 <b>佛罗伦萨→那不勒斯高铁</b>与卡普里轮渡</li>
+        <li>10.2 <b>卡普里→波西塔诺轮渡</b>与波西塔诺→罗马包车</li>
       </ul>
     </div>
     <div class="gc">
-      <h3><span class="ic" style="background:rgba(251,191,36,.15)">🟡</span>提前 3–6 周</h3>
+      <h3><span class="ic" style="background:rgba(167,139,250,.15)">🎟️</span>门票与餐厅已订</h3>
       <ul>
-        <li>🖼️ 卢浮宫<b>时段票</b>(订周四9.24上午/中午场,约11:30入)</li>
-        <li>⛪ <b>梵蒂冈博物馆+西斯廷</b>跳线(<span class="em">只能10.3周六去</span>)</li>
-        <li>🏛️ <b>斗兽场+古罗马广场</b>联票(易售罄)</li>
-        <li>乌菲兹 / 学院美术馆(大卫像)二选一</li>
-        <li>圣礼拜堂 Sainte-Chapelle 彩窗</li>
-        <li>热门餐厅(Mirazur 等需提前数月)</li>
+        <li>9.24 <b>卢浮宫 11:30</b>、晚餐 20:00</li>
+        <li>9.25 球衣古着店 16:00–16:15、<b>Les Ombres 20:30</b></li>
+        <li>9.27 <b>Le Galet 19:00</b></li>
+        <li>9.28 佛罗伦萨 T 骨牛排晚餐 20:00</li>
+        <li>9.29 <b>圣母百花 11:00、乌菲兹 15:00</b></li>
+        <li>10.3 <b>梵蒂冈博物馆 17:00</b>；10.4 晚餐 19:45</li>
       </ul>
     </div>
     <div class="gc">
-      <h3><span class="ic" style="background:rgba(34,211,238,.15)">🔵</span>提前几天 / 2–3 天</h3>
+      <h3><span class="ic" style="background:rgba(251,191,36,.15)">🟡</span>仍需确认</h3>
       <ul>
-        <li><b>那不勒斯→卡普里、卡普里→波西塔诺轮渡</b>(查末班+海况)</li>
-        <li>卡普里岛<b>行李 porter</b>(可让酒店代约)</li>
-        <li>万神殿在线预约 · 各热门餐厅</li>
-        <li><b>巴黎圣母院免费时段</b>(用于9.24):官方 App 巴黎午夜放票,<b>每单6人</b>,提前注册设提醒;钟楼 €16 另在 CMN 官网订</li>
+        <li>巴黎酒店→车站的<b>6 人接送</b></li>
+        <li>9.24 <b>圣礼拜堂</b>是否加入、巴黎圣母院仅看外观</li>
+        <li>9.25 <b>塞纳河游船</b>是否购买</li>
+        <li>卡普里码头→酒店的<b>接驳或缆索车方案</b></li>
+        <li>10.1 海滩俱乐部 / 蓝洞是否预约</li>
+        <li>10.2 波西塔诺<b>行李寄存</b>与司机交接、10.5 罗马→FCO 包车</li>
       </ul>
     </div>
   </div>
+</section>
+
+<section id="emergency" class="wrap">
+  <div class="eyebrow">Emergency & Consular Help</div>
+  <h2 class="sec" data-en="Emergency, medical & consular help">应急、医疗与领事协助</h2>
+  <p class="sub" data-en="For a life-threatening emergency, call the local emergency number first. Hospital details below are practical references; call ahead when possible.">遇到危及生命的情况，请先拨打当地紧急号码。以下医院为就近应急参考；条件允许时先电话确认。</p>
+
+  <div class="sos-banner">
+    <div class="sos-number"><div class="num"><a href="tel:112">112</a></div><div class="what" data-en="EU emergency · police / fire / medical dispatch">欧盟通用紧急号码 · 警察 / 消防 / 医疗转接</div></div>
+    <div class="sos-number"><div class="num"><a href="tel:15">15</a> / <a href="tel:118">118</a></div><div class="what" data-en="Medical emergency: France 15 · Italy 118">医疗急救：法国 15 · 意大利 118</div></div>
+    <div class="sos-number"><div class="num"><a href="tel:+861012308">+86 10 12308</a></div><div class="what" data-en="China MFA 24-hour consular protection hotline">中国外交部全球领保 24 小时热线</div></div>
+  </div>
+
+  <div class="emergency-grid">
+    <article class="emergency-card">
+      <span class="country-label">FRANCE · 法国</span>
+      <h3 data-en="Chinese Embassy in France · Paris">中国驻法国大使馆 · 巴黎</h3>
+      <p><b data-en="24h consular protection">24 小时领事保护：</b> <a href="tel:+33153758840">+33 1 53 75 88 40</a></p>
+      <p><b data-en="Address">地址：</b>11 Avenue George V, 75008 Paris</p>
+      <p><b data-en="Non-emergency email">非紧急邮箱：</b><a href="mailto:lingbao@amb-chine.fr">lingbao@amb-chine.fr</a></p>
+      <div class="quick-actions"><a href="tel:+33153758840" data-en="☎ Call embassy">☎ 致电使馆</a><a href="https://www.google.com/maps/dir/?api=1&destination=11%20Avenue%20George%20V%2C%2075008%20Paris" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a><a href="https://fr.china-embassy.gov.cn/zgzfg/zgsg/lsqwc/lxwm/" target="_blank" rel="noopener noreferrer" data-en="Official source">官方信息</a></div>
+    </article>
+
+    <article class="emergency-card">
+      <span class="country-label">FRANCE · 法国南部</span>
+      <h3 data-en="Chinese Consulate-General in Marseille · Nice / Menton jurisdiction">中国驻马赛总领馆 · 尼斯 / 芒通领区</h3>
+      <p><b data-en="24h consular protection">24 小时领事保护：</b> <a href="tel:+33491320019">+33 4 91 32 00 19</a></p>
+      <p><b data-en="Address">地址：</b>16 Boulevard Carmagnole, 13008 Marseille</p>
+      <p data-en="Provence-Alpes-Côte d’Azur, including Nice and Menton, is within this consular district.">普罗旺斯-阿尔卑斯-蔚蓝海岸大区（含尼斯、芒通）属该馆领区。</p>
+      <div class="quick-actions"><a href="tel:+33491320019" data-en="☎ Call consulate">☎ 致电总领馆</a><a href="https://www.google.com/maps/dir/?api=1&destination=16%20Boulevard%20Carmagnole%2C%2013008%20Marseille" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a><a href="https://marseille.china-consulate.gov.cn/lqgk/" target="_blank" rel="noopener noreferrer" data-en="Official source">官方信息</a></div>
+    </article>
+
+    <article class="emergency-card">
+      <span class="country-label it">ITALY · 意大利中南部</span>
+      <h3 data-en="Chinese Embassy in Italy · Rome / Naples / Capri / Amalfi Coast">中国驻意大利大使馆 · 罗马 / 那不勒斯 / 卡普里 / 阿马尔菲海岸</h3>
+      <p><b data-en="24h consular protection">24 小时领事保护：</b> <a href="tel:+393939110852">+39 393 911 0852</a></p>
+      <p><b data-en="Address">地址：</b>Via Bruxelles 56, 00198 Roma</p>
+      <p><b data-en="Consular email">领事邮箱：</b><a href="mailto:roma@csm.mfa.gov.cn">roma@csm.mfa.gov.cn</a></p>
+      <div class="quick-actions"><a href="tel:+393939110852" data-en="☎ Call embassy">☎ 致电使馆</a><a href="https://www.google.com/maps/dir/?api=1&destination=Via%20Bruxelles%2056%2C%2000198%20Roma" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a><a href="https://it.china-embassy.gov.cn/chn/lsyw/lianxiwomenlingqiao/" target="_blank" rel="noopener noreferrer" data-en="Official source">官方信息</a></div>
+    </article>
+
+    <article class="emergency-card">
+      <span class="country-label it">ITALY · 意大利中部</span>
+      <h3 data-en="Chinese Consulate-General in Florence">中国驻佛罗伦萨总领馆</h3>
+      <p><b data-en="24h consular protection">24 小时领事保护：</b> <a href="tel:+393357748753">+39 335 774 8753</a></p>
+      <p><b data-en="Address">地址：</b>Via dei Della Robbia 89–91, 50132 Firenze</p>
+      <p><b data-en="Main line">总机：</b><a href="tel:+39055058188">+39 055 058 188</a></p>
+      <div class="quick-actions"><a href="tel:+393357748753" data-en="☎ Call consulate">☎ 致电总领馆</a><a href="https://www.google.com/maps/dir/?api=1&destination=Via%20dei%20Della%20Robbia%2089%2C%2050132%20Firenze" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a><a href="https://it.china-embassy.gov.cn/sgxx/200406/t20040629_3198832.htm" target="_blank" rel="noopener noreferrer" data-en="Official source">官方信息</a></div>
+    </article>
+  </div>
+
+  <h3 style="margin:26px 0 12px" data-en="Hospitals with emergency departments along the route">行程沿线急诊医院</h3>
+  <div class="emergency-grid">
+    <article class="emergency-card"><h3 data-en="Paris · Hôpital Cochin AP-HP">巴黎 · Hôpital Cochin AP-HP</h3><p data-en="Adult emergency department, open 24/7">成人急诊，24 小时开放</p><p><b data-en="Address">地址：</b>123 Boulevard de Port-Royal, 75014 Paris</p><p><b data-en="Emergency desk">急诊接待：</b><a href="tel:+33158412722">+33 1 58 41 27 22</a></p><div class="quick-actions"><a href="tel:15" data-en="☎ Call 15">☎ 拨打 15</a><a href="https://www.google.com/maps/dir/?api=1&destination=H%C3%B4pital%20Cochin%20123%20Boulevard%20de%20Port-Royal%20Paris" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+    <article class="emergency-card"><h3 data-en="Nice · CHU Nice Hôpital Pasteur 2">尼斯 · CHU Nice Hôpital Pasteur 2</h3><p data-en="Adult emergency department, open 24/7">成人急诊，24 小时开放</p><p><b data-en="Address">地址：</b>30 Voie Romaine, 06000 Nice</p><p><b data-en="Emergency desk">急诊接待：</b><a href="tel:+33492033312">+33 4 92 03 33 12</a></p><div class="quick-actions"><a href="tel:15" data-en="☎ Call 15">☎ 拨打 15</a><a href="https://www.google.com/maps/dir/?api=1&destination=H%C3%B4pital%20Pasteur%202%2C%2030%20Voie%20Romaine%2C%20Nice" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+    <article class="emergency-card"><h3 data-en="Menton · Centre Hospitalier La Palmosa">芒通 · Centre Hospitalier La Palmosa</h3><p data-en="Local public hospital and emergency reference">当地公立医院与急诊参考</p><p><b data-en="Address">地址：</b>2 Avenue Antoine Péglion, 06500 Menton</p><p><b data-en="Hospital switchboard">医院总机：</b><a href="tel:+33493287777">+33 4 93 28 77 77</a></p><div class="quick-actions"><a href="tel:15" data-en="☎ Call 15">☎ 拨打 15</a><a href="https://www.google.com/maps/dir/?api=1&destination=Centre%20Hospitalier%20La%20Palmosa%2C%20Menton" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+    <article class="emergency-card"><h3 data-en="Florence · Ospedale Santa Maria Nuova">佛罗伦萨 · Ospedale Santa Maria Nuova</h3><p data-en="General emergency department, open 24/7">综合急诊，24 小时开放</p><p><b data-en="Address">地址：</b>Piazza Santa Maria Nuova 1, 50122 Firenze</p><p><b data-en="Emergency department">急诊科：</b><a href="tel:+390556938930">+39 055 693 8930</a></p><div class="quick-actions"><a href="tel:112" data-en="☎ Call 112">☎ 拨打 112</a><a href="https://www.google.com/maps/dir/?api=1&destination=Ospedale%20Santa%20Maria%20Nuova%2C%20Firenze" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+    <article class="emergency-card"><h3 data-en="Naples · Ospedale dei Pellegrini">那不勒斯 · Ospedale dei Pellegrini</h3><p data-en="City-centre hospital with emergency department">市中心设急诊的医院</p><p><b data-en="Address">地址：</b>Via Portamedina alla Pignasecca 41, Napoli</p><p><b data-en="Emergency department">急诊科：</b><a href="tel:+390812543349">+39 081 254 3349</a></p><div class="quick-actions"><a href="tel:112" data-en="☎ Call 112">☎ 拨打 112</a><a href="https://www.google.com/maps/dir/?api=1&destination=Ospedale%20dei%20Pellegrini%2C%20Napoli" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+    <article class="emergency-card"><h3 data-en="Capri · Ospedale G. Capilupi">卡普里 · Ospedale G. Capilupi</h3><p data-en="Island hospital with emergency care">岛上设急诊的医院</p><p><b data-en="Address">地址：</b>Piazzale Anacapri 3, Capri</p><p><b data-en="Hospital administration">医院值班 / 管理：</b><a href="tel:+390812541208">+39 081 254 1208</a></p><div class="quick-actions"><a href="tel:112" data-en="☎ Call 112">☎ 拨打 112</a><a href="https://www.google.com/maps/dir/?api=1&destination=Ospedale%20G.%20Capilupi%2C%20Capri" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+    <article class="emergency-card"><h3 data-en="Amalfi Coast · Presidio Ospedaliero Costa d’Amalfi">阿马尔菲海岸 · Presidio Ospedaliero Costa d’Amalfi</h3><p data-en="Emergency reference for Positano / Amalfi Coast; call 112 or 118 first">波西塔诺 / 阿马尔菲海岸急诊参考；优先拨 112 或 118</p><p><b data-en="Address">地址：</b>Via Civita 70, Castiglione di Ravello</p><p><b data-en="Hospital information">医院总机：</b><a href="tel:+390894455111">+39 089 445 5111</a></p><div class="quick-actions"><a href="tel:118" data-en="☎ Call 118">☎ 拨打 118</a><a href="https://www.google.com/maps/dir/?api=1&destination=Presidio%20Ospedaliero%20Costa%20d%27Amalfi%2C%20Ravello" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+    <article class="emergency-card"><h3 data-en="Rome · Ospedale San Camillo">罗马 · Ospedale San Camillo</h3><p data-en="Level II emergency department, open 24/7">二级急救中心，24 小时开放</p><p><b data-en="Address">地址：</b>Circonvallazione Gianicolense 87, 00152 Roma</p><p><b data-en="Emergency department">急诊科：</b><a href="tel:+390658703112">+39 06 5870 3112</a></p><div class="quick-actions"><a href="tel:112" data-en="☎ Call 112">☎ 拨打 112</a><a href="https://www.google.com/maps/dir/?api=1&destination=Ospedale%20San%20Camillo%2C%20Roma" target="_blank" rel="noopener noreferrer" data-en="📍 Navigate">📍 导航</a></div></article>
+  </div>
+  <div class="note" style="margin-top:18px" data-en="Save these numbers offline before departure. When calling, state your exact location, what happened, the number of patients and a callback number. France: police 17, fire 18, emergency SMS 114. Italy: fire 115.">📱 建议出发前把号码离线保存。报警时说明准确位置、发生了什么、患者人数和回拨号码。法国：警察 17、消防 18、短信急救 114；意大利：消防 115。</div>
+  <p class="source-note" data-en="Checked against official embassy, consulate, public health authority and hospital information in September 2026. Numbers and opening arrangements may change; in a critical emergency call 112 first.">信息于 2026 年 9 月根据使领馆、卫生机构和医院官方页面核对。电话与接诊安排可能调整；危急情况优先拨 112。</p>
 </section>
 
 <section id="tips" class="wrap">
@@ -327,136 +445,266 @@
     <div class="gc"><h3><span class="ic" style="background:rgba(52,211,153,.15)">💶</span>退税</h3>
       <ul><li>法国单店满约 <b>€100</b>、意大利约 <b>€70</b> 起可退</li><li>店内只开单,<span class="em">海关核验在罗马 FCO 统一办</span>(法国买的也在罗马)</li><li>机场预留 <b>1–1.5h</b></li></ul></div>
     <div class="gc"><h3><span class="ic" style="background:rgba(251,191,36,.15)">🧳</span>卡普里行李</h3>
-      <ul><li>海岛多台阶,用 <b>porter 搬运</b>(每件约 €15–25)</li><li>住<b>近 Piazzetta / 缆索车</b>的酒店</li><li>10.2 离岛走"行李最省心"路线</li></ul></div>
+      <ul><li>码头到卡普里镇优先考虑<b>缆索车或酒店接驳</b></li><li>六人多行李，出发前向酒店确认搬运方式</li><li>10.2 波西塔诺先寄存行李，再开始步行游览</li></ul></div>
     <div class="gc"><h3><span class="ic" style="background:rgba(244,114,182,.15)">💳</span>支付 / 安全</h3>
       <ul><li>欧元,普遍刷卡;小镇/渡口/市场备<b>少量现金</b>;eSIM 落地即用</li><li>巴黎、那不勒斯、罗马<b>防扒手</b>,背包前背</li></ul></div>
     <div class="gc"><h3><span class="ic" style="background:rgba(34,211,238,.15)">⛪</span>预约 & 闭馆</h3>
-      <ul><li><span class="em">梵蒂冈周日闭馆 → 只能 10.3 周六去</span></li><li>卢浮宫/斗兽场/万神殿/圣母院均需<b>提前预约</b></li><li>全程不自驾,<b>无需驾照翻译件</b></li></ul></div>
+      <ul><li><span class="em">梵蒂冈博物馆已订 10.3 周六 17:00</span></li><li>10.4 斗兽场为免费开放日，建议早到并留意官方入场规则</li><li>万神殿按最新版计划现场排队，出发前再核对购票规则</li></ul></div>
   </div>
 </section>
 
 <section id="feedback" class="wrap">
   <div class="fb">
-    <h3>📝 大家看看有没有问题</h3>
-    <p>这是初版详细行程,主要想确认<b>节奏松紧、景点取舍、餐厅口味、每天起止时间</b>是否合适。如果大家都OK,下一步就开始订票、办签证和具体准备。有想法直接在群里说 👇</p>
+    <h3>📝 最新版已同步</h3>
+    <p>本页已按最新共享文档更新。临近出发重点确认<b>接送车、轮渡海况、卡普里接驳、波西塔诺行李寄存和罗马机场包车</b>；个人证件、联系方式与预订编号不在公开页展示。</p>
   </div>
 </section>
 
 <footer>
-  <b>Genius Hit The Road</b> &nbsp;·&nbsp; 法国 · 意大利 13 天家庭游攻略 &nbsp;·&nbsp; 初版供讨论 &nbsp;·&nbsp; 行程留有充足缓冲,可按当天体力/天气灵活增减
+  <b>Genius Hit The Road</b> &nbsp;·&nbsp; 法国 · 意大利 13 天家庭游攻略 &nbsp;·&nbsp; 最新行程同步版 &nbsp;·&nbsp; 可按当天体力、天气与交通情况灵活调整
 </footer>
 
 <script>
 const DAYS=[
  {n:1,date:"9.23",wd:"周三",city:"巴黎",color:"--cy",title:"抵达巴黎",badge:"落地休整",
   ev:[["22:30","戴高乐机场 (CDG) 落地;过关取行李约 1 小时"],
-      ["23:45","预约机场接送大车直达酒店(6人+行李,约 €90–130)"],
+      ["23:45","已订 6 人接机直达酒店(<em>€120 现场支付</em>)"],
       ["00:30","入住休息,<em>今天不安排活动</em>"]],
-  stay:"巴黎 歌剧院/卢浮宫区 · 建议 3 间双床房或公寓式酒店"},
- {n:2,date:"9.24",wd:"周四",city:"巴黎",color:"--cy",title:"卢浮宫 + 巴黎圣母院",badge:"工作日",
-  ev:[["11:00","睡饱起,酒店/卢浮宫附近 brunch"],
-      ["11:45","🖼️ 卢浮宫(已订时段票):蒙娜丽莎、胜利女神、断臂维纳斯,约3h,中途咖啡"],
-      ["15:00","沿塞纳河东行,西岱岛/拉丁区午餐"],
-      ["16:00","圣礼拜堂 Sainte-Chapelle(彩色玻璃震撼,值得订)"],
-      ["16:45","⛪ 巴黎圣母院内部(<em>提前2–3天 App 约免费时段,6人一组,挑下午时段</em>)+ 外观广场"],
-      ["17:45","(可选)玛黑区 Le Marais:孚日广场、买手小店、甜品"],
-      ["19:30","晚餐 玛黑区 / 拉丁区"]],
-  note:"先趁精神逛卢浮宫,再沿塞纳河由西向东到西岱岛(圣礼拜堂+圣母院)、玛黑,一条线不折返;卢浮宫中午人略多,想更空可订开馆9点场、早点起。",stay:"巴黎(连住)"},
+  maps:[["戴高乐机场","Charles de Gaulle Airport, France","driving"]],
+  hotel:"paris"},
+ {n:2,date:"9.24",wd:"周四",city:"巴黎",color:"--cy",title:"卢浮宫 + 西岱岛 + 玛黑区",badge:"🎟️ 卢浮宫已订",
+  ev:[["早餐","酒店早餐后出发;地铁 12 号线转 1 号线约 20 分钟"],
+      ["11:30","🖼️ 卢浮宫已订:断臂维纳斯、胜利女神、蒙娜丽莎、拿破仑加冕等重点展品"],
+      ["14:30","卢浮宫附近午餐或甜点;按体力选择法餐、越南粉或日料"],
+      ["16:00","前往西岱岛;巴黎圣母院按最新版计划看外观"],
+      ["17:00","可选莎士比亚书店，或直接进入玛黑区逛街、吃冰淇淋"],
+      ["20:00","已订晚餐 Qui Plume la Lune;餐后可选鸡尾酒吧"]],
+  maps:[["卢浮宫","Louvre Museum, Paris"],["巴黎圣母院","Notre-Dame de Paris"],["莎士比亚书店","Shakespeare and Company, Paris"],["玛黑区","Le Marais, Paris"],["晚餐","Qui Plume la Lune, Paris"]],
+  note:"圣礼拜堂仍待决定。卢浮宫从 Palais Royal–Musée du Louvre 地铁站地下通道进入更省时。",hotel:"paris"},
  {n:3,date:"9.25",wd:"周五",city:"巴黎",color:"--cy",title:"铁塔拍照 + 大牌购物",badge:"西区一条线",
-  ev:[["11:00","早餐(店铺约10–11点开门,不必赶)"],
-      ["12:00","🗼 特罗卡德罗广场 拍铁塔全景(<em>不登塔、不排队</em>)+ 战神广场 + 河岸"],
-      ["13:00","(可选)塞纳河游船 Bateaux Mouches(Alma 桥码头,紧邻铁塔),约 1h"],
-      ["13:45","午餐(香榭丽舍附近)"],
-      ["14:45","🛍️ 蒙田大道(Chanel/Dior/LV)→ 香榭丽舍 LV 旗舰 → 圣honoré街(Hermès)"],
-      ["16:30","🛍️ 老佛爷/巴黎春天 扫货 + <em>办退税单</em>(海关核验留到罗马 FCO)。Chanel 旗舰 31 rue Cambon 顺路"],
-      ["19:00","晚餐 歌剧院/Palais Royal 一带;夜可回特罗卡德罗拍铁塔闪灯"]],
-  note:"巴黎西边一条线:铁塔机位→蒙田/香榭丽舍→老佛爷,由西向东逛回酒店区;今天只拍照不登塔。",stay:"巴黎(连住)"},
+  ev:[["上午","🗼 特罗卡德罗周边街景 brunch，随后拍埃菲尔铁塔经典机位"],
+      ["午餐","香榭丽舍 / 凯旋门附近午餐，打卡香街 LV 与凯旋门"],
+      ["16:00","球衣古着店预约时段 16:00–16:15"],
+      ["下午","分组购物:老佛爷 / 巴黎春天，或玛黑区精品买手店"],
+      ["可选","塞纳河游船;是否购票根据当天节奏决定"],
+      ["20:30","已订 Les Ombres 铁塔景观晚餐"]],
+  maps:[["特罗卡德罗","Place du Trocadéro, Paris"],["凯旋门","Arc de Triomphe, Paris"],["香街 LV","Louis Vuitton Maison Champs Élysées, Paris"],["老佛爷","Galeries Lafayette Haussmann, Paris"],["巴黎春天","Printemps Haussmann, Paris"],["Les Ombres","Les Ombres Paris"]],
+  note:"第二天上午赶火车，今晚顺路买好车上吃的面包和简餐。",hotel:"paris"},
  {n:4,date:"9.26",wd:"周六",city:"巴黎→尼斯",color:"--pp",title:"巴黎 → 尼斯(直达高铁)",badge:"🚄 转场约6h",
-  ev:[["11:00","退房,从容早午餐(行李寄存或带去车站)"],
-      ["12:30","步行/打车到 巴黎里昂车站 Gare de Lyon"],
-      ["13:00","🚄 直达 TGV → 尼斯(约6h;<em>先在 SNCF Connect 确认午后直达</em>)"],
-      ["约19:00","抵达 Nice-Ville 站(市中心),入住老城/海滨"],
-      ["19:30","晚餐 La Petite Maison(尼斯名店)或老城 socca 鹰嘴豆薄饼"]],
-  note:"直达班次有限(约5班/天、多在上午到下午),务必先确认。想早到可坐 10:09→16:08 那班。",
-  stay:"尼斯(连住 2 晚,免搬行李)"},
- {n:5,date:"9.27",wd:"周日",city:"蔚蓝海岸",color:"--pp",title:"自由城 + 尼斯(±埃兹)",badge:"🚐 尼斯附近·轻松日",
-  ev:[["11:00","早餐,半日包车或打车出发"],
-      ["11:45","(可选)🚐 埃兹小镇 Èze(悬崖中世纪村+仙人掌花园,需爬坡),约1.5h —— 不去就把时间留给自由城和尼斯老城"],
-      ["13:15","滨海自由城 Villefranche-sur-Mer(深水海湾、彩色老城)+ 海边午餐"],
-      ["15:30","回尼斯,英国人长廊 Promenade des Anglais 海边散步"],
-      ["16:30","城堡山 Colline du Château:老城<em>免费电梯</em>上山顶,俯瞰天使湾红顶老城"],
-      ["17:30","尼斯老城 Vieux Nice:Cours Saleya 市场、socca 小吃、慢逛"],
-      ["19:30","晚餐 尼斯老城海鲜/地中海菜"]],
-  note:"不去摩纳哥(留到9.28路过快停);埃兹可去可不去(山上中世纪村、要爬坡),不去就更轻松。体力好可加圣保罗德旺斯山顶古镇。",stay:"尼斯(连住)"},
- {n:6,date:"9.28",wd:"周一",city:"尼斯→佛罗伦萨",color:"--pk",title:"尼斯 →(芒通+摩纳哥)→ 佛罗伦萨",badge:"🚐 顺路两站",
-  ev:[["12:00","早餐后退房,司机门口接、装行李,出发"],
-      ["12:30","🚐 摩纳哥:顺路停车拍照,最多到亲王宫广场看卫兵换岗(<em>不进海洋博物馆、不专程看游艇港/F1赛道</em>),约30min"],
-      ["13:15","🚐 芒通 Menton(柠檬之城、法意边境):老城散步 + 海鲜午餐(约1.5h)"],
-      ["15:00","进入意大利,沿利古里亚海岸一路向佛罗伦萨(中途短暂休息腿脚)"],
-      ["约19:45","抵达佛罗伦萨,入住市中心(圣母百花/SMN 站附近)"],
-      ["20:00","晚餐 托斯卡纳 T 骨牛排 Il Latini(适合6人)或 Buca Lapi"]],
-  note:"芒通+摩纳哥都在东去意大利的路上,顺路停几乎不绕路;<em>12点出发、约20点到佛罗伦萨吃晚餐</em>。摩纳哥只快停拍照/看卫兵。后续想加比萨斜塔,把海岸停留压缩即可。",
-  stay:"佛罗伦萨(连住 2 晚)"},
- {n:7,date:"9.29",wd:"周二",city:"佛罗伦萨",color:"--pk",title:"佛罗伦萨文艺复兴一日",badge:"美术馆二选一",
-  ev:[["11:00","早餐"],
-      ["11:45","⛪ 圣母百花 Duomo 外观(体力好登 Brunelleschi 穹顶或乔托钟楼,需订)"],
-      ["13:00","午餐 All'Antico Vinaio 三明治 或就近 trattoria"],
-      ["14:30","🖼️ 乌菲兹(《维纳斯诞生》约2.5h)<em>或</em>学院美术馆看大卫像(约1h);都需预订"],
-      ["16:30","旧桥 Ponte Vecchio + Scuola del Cuoio 皮革工坊(可选)"],
-      ["18:00","米开朗基罗广场 看日落 + 全城天际线"],
-      ["20:00","晚餐 Osteria Santo Spirito(松露面)+ Vivoli 冰淇淋"]],
-  note:"只有一天,乌菲兹/学院二选一更松;周二两馆都开(周一闭馆)。",stay:"佛罗伦萨(连住)"},
+  ev:[["早餐","酒店早餐或提前买好的面包，退房前确认随身行李"],
+      ["出发","前往巴黎里昂站;6 人接送仍待确认"],
+      ["11:22","🚄 已订直达 TGV 前往尼斯，午餐在车上解决"],
+      ["傍晚","抵达 Nice-Ville;步行约 10 分钟到酒店办理入住"],
+      ["晚餐","酒店周边任选海鲜、法餐、意大利餐或印尼菜"]],
+  maps:[["巴黎里昂站","Gare de Lyon, Paris","transit"],["尼斯火车站","Nice-Ville Station, Nice","transit"]],
+  note:"车票已锁定，重点只剩出发当天酒店到车站的交通。",hotel:"nice"},
+ {n:5,date:"9.27",wd:"周日",city:"蔚蓝海岸",color:"--pp",title:"尼斯老城 + 城堡山 + 天使湾",badge:"🌊 市内慢游",
+  ev:[["上午","酒店早餐，或在萨雷亚市场 12 点收市前先逛早市"],
+      ["中午","尼斯圣母殿(可选)→梅德森大道→马塞纳广场→尼斯老城"],
+      ["下午","乘免费电梯上城堡山，俯瞰红顶老城与天使湾"],
+      ["傍晚","沿 I Love Nice 地标下山，到英国人漫步大道和海边放空"],
+      ["19:00","已订 Le Galet 海边晚餐"],
+      ["夜间","按体力选择鸡尾酒吧、现场乐队酒吧或回酒店休息"]],
+  maps:[["萨雷亚市场","Cours Saleya, Nice"],["尼斯圣母殿","Basilique Notre-Dame de l'Assomption, Nice"],["马塞纳广场","Place Masséna, Nice"],["尼斯老城","Vieux Nice"],["城堡山电梯","Ascenseur du Château, Nice"],["I Love Nice","I Love Nice sign"],["Le Galet","Le Galet, Nice"]],
+  note:"最新版取消埃兹、自由城和摩纳哥，把这一天完整留给尼斯。老城重点尝 socca、gelato 和咖啡。",hotel:"nice"},
+ {n:6,date:"9.28",wd:"周一",city:"尼斯→佛罗伦萨",color:"--pk",title:"尼斯 → 芒通 → 佛罗伦萨",badge:"🚐 包车已订",
+  ev:[["上午","酒店退房，已订跨境包车从尼斯出发"],
+      ["约40min","抵达芒通:海滩→黄色阶梯→圣米歇尔教堂→老街→观景点"],
+      ["午餐","芒通停留 2–3 小时，午餐可选海鲜意面"],
+      ["下午","芒通→佛罗伦萨，车程约 5 小时"],
+      ["抵达","办理入住，视路况决定是否先休息再赴晚餐"],
+      ["20:00","已订 Trattoria Dall'Oste Chianineria T 骨牛排晚餐"]],
+  maps:[["芒通海滩","Plage des Sablettes, Menton"],["圣米歇尔教堂","Basilique Saint-Michel Archange, Menton"],["芒通老城","Old Town Menton"],["芒通观景点","Menton Viewpoint, France"],["T骨牛排晚餐","Trattoria Dall'Oste Chianineria, Florence"]],
+  note:"最新版不再经过摩纳哥。跨境包车已订 €900 / 6 人。",hotel:"florence"},
+ {n:7,date:"9.29",wd:"周二",city:"佛罗伦萨",color:"--pk",title:"圣母百花 + 乌菲兹 + 日落",badge:"🎟️ 两个时段已订",
+  ev:[["早餐","酒店附近咖啡厅;可试开心果羊角面包"],
+      ["11:00","⛪ 圣母百花已订:先登穹顶，再看博物馆;钟楼按体力决定"],
+      ["13:30","教堂附近午餐，或中央市场 / All'Antico Vinaio 快速解决"],
+      ["15:00","🖼️ 乌菲兹已订:先看二楼精华，再到一楼，预计约 2 小时"],
+      ["傍晚","打车或步行前往米开朗基罗广场看日落"],
+      ["晚餐","广场附近托斯卡纳菜;回城后可选 Locale Firenze 或 Gucci Giardino"]],
+  maps:[["圣母百花","Cathedral of Santa Maria del Fiore, Florence"],["中央市场","Mercato Centrale Firenze"],["乌菲兹","Uffizi Gallery, Florence"],["米开朗基罗广场","Piazzale Michelangelo, Florence"],["Locale Firenze","Locale Firenze"],["Gucci Giardino","Gucci Giardino 25, Florence"]],
+  note:"穹顶约 460 级台阶且通道狭窄；同日再爬钟楼会很累，可现场按体力放弃。",hotel:"florence"},
  {n:8,date:"9.30",wd:"周三",city:"佛罗伦萨→卡普里",color:"--gr",title:"佛罗伦萨 → 卡普里(高铁+轮渡)",badge:"🚄⛴️ 大转场",
-  ev:[["10:30","早餐,退房"],
-      ["11:30","SMN 站 Frecciarossa → 那不勒斯(约3h,已订连座)"],
-      ["约14:30","那不勒斯,打车到 Molo Beverello 港(约15min)"],
-      ["约16:00","⛴️ 那不勒斯 → 卡普里轮渡(约50–80min;<em>查末班+海况</em>)"],
-      ["约17:30","到 Marina Grande,porter 搬行李 + 缆索车上 卡普里镇,入住"],
-      ["19:30","晚餐 卡普里镇,Piazzetta 喝一杯"]],
-  note:"高铁+轮渡大转场,建议稍早、末班轮渡别压点;订近 Piazzetta/缆索车的酒店、约好 porter。",
-  stay:"卡普里岛(连住 2 晚)"},
+  ev:[["早餐","酒店早餐后退房，前往 Firenze SMN;可在车站买三明治"],
+      ["10:48","🚄 已订高铁前往 Napoli Centrale"],
+      ["14:03","抵达那不勒斯，打车约 20 分钟前往 Molo Beverello"],
+      ["下午","⛴️ 已订轮渡前往卡普里;出发前再次确认码头和海况"],
+      ["抵达","Marina Grande→卡普里镇;酒店接驳与缆索车方案待确认"],
+      ["晚餐","海景意大利菜 / 海鲜;21:00 前可逛 Piazzetta 周边商店"]],
+  maps:[["佛罗伦萨车站","Firenze Santa Maria Novella Station","transit"],["那不勒斯车站","Napoli Centrale","transit"],["贝韦雷洛码头","Molo Beverello, Naples","transit"],["卡普里大码头","Marina Grande, Capri"],["卡普里广场","Piazzetta di Capri"]],
+  note:"高铁与轮渡均已订。换乘段不要临时停留那不勒斯，先保证赶上船。",hotel:"capri"},
  {n:9,date:"10.1",wd:"周四",city:"卡普里岛",color:"--gr",title:"卡普里岛一日",badge:"🏝️ 海岛慢玩",
-  ev:[["11:00","早餐"],
-      ["11:45","Monte Solaro 缆车(阿纳卡普里)俯瞰全岛(全岛最佳视角)"],
-      ["13:00","午餐 Da Paolino(柠檬树下,需预订)或镇上餐厅"],
-      ["14:30","Augustus 花园 + 远眺 Faraglioni 礁石 + Via Krupp 观景"],
-      ["16:00","卡普里镇 Piazzetta 咖啡 + 奢侈品小店"],
-      ["17:30","(可选)蓝洞:换小船+看海况+排队,不游泳可去可不去"],
-      ["20:00","晚餐 卡普里海鲜"]],
-  note:"住岛上不赶轮渡、傍晚海岛格外安静;岛上陆地游玩即可,不必额外出海。",stay:"卡普里岛(连住)"},
+  ev:[["早餐","酒店早餐后步行前往奥古斯都花园"],
+      ["上午","Augustus 花园 + 免费小路 S 弯观景台;中午光线更适合拍照"],
+      ["中午","敞篷出租前往安娜卡普里，镇中心午餐与逛街"],
+      ["下午","Monte Solaro 椅式缆车往返，山顶俯瞰全岛"],
+      ["可选","海况好再去蓝洞;否则回卡普里逛街或去海滩俱乐部放松"],
+      ["晚餐","安娜卡普里日落餐厅，或 Marina Piccola 海边餐厅"]],
+  maps:[["奥古斯都花园","Giardini di Augusto, Capri"],["安娜卡普里","Anacapri, Italy"],["索拉罗山缆车","Monte Solaro Chair Lift, Anacapri"],["蓝洞","Blue Grotto, Capri"],["La Fontelina","La Fontelina, Capri"],["Lido del Faro","Lido del Faro, Anacapri"],["小码头海滩","Marina Piccola, Capri"]],
+  note:"六人乘敞篷出租比公交更省时间。蓝洞和海滩俱乐部只选其一，避免行程过满。",hotel:"capri"},
  {n:10,date:"10.2",wd:"周五",city:"卡普里→罗马",color:"--am",title:"卡普里 → 波西塔诺 → 罗马",badge:"⛴️🚙 转场",
-  ev:[["10:30","早餐,退房,porter 把行李送下码头"],
-      ["11:30","⛴️ 卡普里 → 波西塔诺轮渡(约40min);<em>或先到索伦托把行李装进等候的包车</em>"],
-      ["12:30","🏖️ 波西塔诺:彩色山城、Spiaggia Grande 海滩、爬坡精品店、主教堂金顶"],
-      ["13:30","午餐 Chez Black 海边 或 La Tagliata 山顶(含接驳)"],
-      ["16:00","🚙 波西塔诺 → 罗马包车(约3.5–4h,行李在车上)"],
-      ["约20:00","抵达罗马,入住历史中心,就近晚餐"]],
-  note:"带全部行李转场;波西塔诺台阶多,用 porter 或走'先到索伦托装车'路线最省心。",
-  stay:"罗马(连住 3 晚,历史中心)"},
- {n:11,date:"10.3",wd:"周六",city:"罗马",color:"--am",title:"罗马:梵蒂冈",badge:"⛪ 周六必去",
-  ev:[["11:00","早餐"],
-      ["11:30","⛪ 梵蒂冈博物馆(已订跳线):地图廊、拉斐尔房间 → 西斯廷礼拜堂,约3h"],
-      ["15:00","午餐(梵蒂冈周边)"],
-      ["16:00","圣彼得大教堂(免费,安检排队;体力好登穹顶)"],
-      ["17:30","圣天使堡外观、台伯河边散步"],
-      ["20:00","晚餐 特拉斯泰韦雷 Trastevere 区(罗马最有氛围的老城餐饮区)"]],
-  note:"<em>梵蒂冈周日闭馆,只能今天(周六)去</em>;人多订早场跳线,进教堂遮肩盖膝。",stay:"罗马(连住)"},
+  ev:[["早餐","酒店早餐后退房，带全部行李前往码头"],
+      ["上午","⛴️ 已订轮渡前往波西塔诺，上岸后先寄存行李"],
+      ["中午","柠檬镜子→教堂→水果店→Via Cristoforo Colombo 观景台"],
+      ["午餐","沿主路选择海景餐厅、披萨或柠檬雪葩"],
+      ["下午","与已订包车司机完成行李交接，前往罗马"],
+      ["晚上","办理入住后夜游 Trastevere:晚餐、小吃、gelato 与街头氛围"]],
+  maps:[["波西塔诺码头","Positano Ferry Terminal"],["柠檬镜子","Ceramica Assunta, Positano"],["圣母升天教堂","Church of Santa Maria Assunta, Positano"],["观景台","Via Cristoforo Colombo 175, Positano"],["特拉斯提弗列","Trastevere, Rome"],["Trilussa广场","Piazza Trilussa, Rome"]],
+  note:"波西塔诺台阶多且带全部行李，寄存地址与司机上车点必须提前在群里确认。",hotel:"rome"},
+ {n:11,date:"10.3",wd:"周六",city:"罗马",color:"--am",title:"圣天使堡 + 圣彼得 + 梵蒂冈",badge:"🎟️ 17:00 已订",
+  ev:[["早餐","酒店早餐后出发"],
+      ["上午","圣天使堡外观、台伯河散步，顺路拍圣彼得穹顶机位"],
+      ["午餐","梵蒂冈周边意面、卷饼或川菜;留意下午入场时间"],
+      ["下午","圣彼得广场 + 圣彼得大教堂;预留安检排队"],
+      ["17:00","⛪ 梵蒂冈博物馆已订:松果庭院→拉奥孔→长廊→拉斐尔画室→西斯廷礼拜堂"],
+      ["晚餐","参观结束后在梵蒂冈周边就近用餐"]],
+  maps:[["圣天使堡","Castel Sant'Angelo, Rome"],["穹顶机位","Monumento di Santa Caterina da Siena, Rome"],["圣彼得广场","St. Peter's Square, Vatican City"],["圣彼得大教堂","St. Peter's Basilica, Vatican City"],["梵蒂冈博物馆","Vatican Museums Entrance"]],
+  note:"入教堂遮肩盖膝。博物馆预计 3–4 小时，下午不要再叠加远距离景点。",hotel:"rome"},
  {n:12,date:"10.4",wd:"周日",city:"罗马",color:"--am",title:"斗兽场 + 许愿池 + 老城",badge:"🏛️ 古罗马+老城",
-  ev:[["11:00","早餐"],
-      ["11:30","🏛️ 斗兽场(已订联票)+ 古罗马广场 + 帕拉蒂诺山,约3h"],
-      ["14:30","午餐(古城区)"],
-      ["15:30","威尼斯广场 → 万神殿 Pantheon(需在线预约)"],
-      ["16:30","💧 特雷维喷泉 Trevi(许愿池投币)+ gelato"],
-      ["17:30","西班牙阶梯 + 纳沃纳广场(贝尼尼喷泉)"],
-      ["20:00","告别晚餐 经典罗马菜;<em>收拾行李</em>"]],
-  note:"全是周日照常开放的点,步行可达;注意扒手、背包前背。",stay:"罗马(连住)"},
+  ev:[["早上","早起前往斗兽场;10.4 免费开放，按官方规则排队入场"],
+      ["上午","🏛️ 斗兽场 1–2 层→帕拉蒂诺山观景→古罗马广场，预计约 3 小时"],
+      ["午餐","斗兽场 / Monti 区附近吃披萨、意面或三明治"],
+      ["下午","威尼斯广场→万神殿→纳沃纳广场→特雷维喷泉"],
+      ["可选","仍有体力再去西班牙广场"],
+      ["19:45","已订 Gigi Rigolatto Roma 景观晚餐;餐后可选 Drink Kong"]],
+  maps:[["斗兽场","Colosseum, Rome"],["帕拉蒂诺山","Palatine Hill, Rome"],["古罗马广场","Roman Forum, Rome"],["威尼斯广场","Piazza Venezia, Rome"],["万神殿","Pantheon, Rome"],["纳沃纳广场","Piazza Navona, Rome"],["特雷维喷泉","Trevi Fountain, Rome"],["西班牙广场","Spanish Steps, Rome"],["晚餐","Gigi Rigolatto Roma"],["Drink Kong","Drink Kong, Rome"]],
+  note:"这是全程最需要早起的一天。景点密集，以斗兽场和古罗马为主，西班牙广场随体力取舍。",hotel:"rome"},
  {n:13,date:"10.5",wd:"周一",city:"罗马→北京",color:"--am",title:"罗马 → 机场 → 北京",badge:"✈️ 回程",
-  ev:[["11:00","从容早餐(想再逛去附近打卡)"],
-      ["15:30","包车 罗马市区 → FCO(约45–60min)"],
-      ["16:00","抵达 FCO,午餐 + <em>办退税</em>(法/意统一在此海关核验,留足1–1.5h)"],
+  ev:[["早餐","酒店早餐后查漏补缺;可选 Eataly、跳蚤市场或球衣店"],
+      ["午餐","酒店附近简餐，回酒店取行李"],
+      ["15:30","6 人包车前往 FCO(<em>仍待最终确认</em>)"],
+      ["约16:30","抵达 FCO，办理退税、值机与安检，法国购物也在此统一核验"],
       ["17:00","国际值机/安检"],
       ["20:00","✈️ 起飞回北京(晚航班,11点起也来得及)"]],
-  note:"上午可补一两个没看够的点(喷泉/广场),再去机场。"},
+  maps:[["Eataly","Eataly Roma Ostiense"],["跳蚤市场","Mercatino Usato Roma Garbatella"],["球衣店","Calcioitalia.com, Rome"],["FCO机场","Rome Fiumicino Airport","driving"]],
+  note:"上午活动不要离酒店太远。需要退税的商品、护照、退税单和登机材料放在随身易取位置。"},
+];
+
+const EN_DAYS=[
+ {wd:"Wed",city:"Paris",title:"Arrival in Paris",badge:"Arrival & rest",
+  ev:[["22:30","Land at Charles de Gaulle Airport (CDG); allow about 1 hour for immigration and baggage"],["23:45","Pre-booked transfer for 6 directly to the hotel (<em>€120, pay on site</em>)"],["00:30","Check in and rest; <em>no activities tonight</em>"]],
+  maps:["Charles de Gaulle Airport"],note:"Keep passports and the driver’s contact details easy to reach after landing."},
+ {wd:"Thu",city:"Paris",title:"Louvre + Île de la Cité + Le Marais",badge:"🎟️ Louvre booked",
+  ev:[["Breakfast","Leave after breakfast; Metro line 12 then line 1, about 20 minutes"],["11:30","🖼️ Louvre booking: Venus de Milo, Winged Victory, Mona Lisa, Coronation of Napoleon and other highlights"],["14:30","Lunch or dessert near the Louvre; choose French, Vietnamese or Japanese food depending on energy"],["16:00","Continue to Île de la Cité; view Notre-Dame from outside under the latest plan"],["17:00","Optional Shakespeare and Company, or go straight to Le Marais for shops and gelato"],["20:00","Booked dinner at Qui Plume la Lune; optional cocktail bar afterwards"]],
+  maps:["Louvre Museum","Notre-Dame","Shakespeare and Company","Le Marais","Dinner"],note:"Sainte-Chapelle is still optional. The underground entrance from Palais Royal–Musée du Louvre is usually more efficient."},
+ {wd:"Fri",city:"Paris",title:"Eiffel Tower photos + shopping",badge:"West Paris route",
+  ev:[["Morning","🗼 Brunch and street photos around Trocadéro, then classic Eiffel Tower viewpoints"],["Lunch","Lunch near the Champs-Élysées / Arc de Triomphe; visit the LV flagship and the Arc"],["16:00","Vintage football-shirt shop reservation, 16:00–16:15"],["Afternoon","Split for shopping: Galeries Lafayette / Printemps, or designer shops in Le Marais"],["Optional","Seine cruise; decide on tickets based on the day’s pace"],["20:30","Booked Eiffel-view dinner at Les Ombres"]],
+  maps:["Trocadéro","Arc de Triomphe","Champs-Élysées LV","Galeries Lafayette","Printemps","Les Ombres"],note:"Buy bread or a light meal for tomorrow’s train before returning to the hotel."},
+ {wd:"Sat",city:"Paris → Nice",title:"Paris → Nice by direct train",badge:"🚄 About 6h in transit",
+  ev:[["Breakfast","Hotel breakfast or bread bought in advance; check carry-on items before checkout"],["Depart","Travel to Gare de Lyon; transfer for 6 still needs confirmation"],["11:22","🚄 Booked direct TGV to Nice; have lunch on the train"],["Evening","Arrive at Nice-Ville and walk about 10 minutes to check in"],["Dinner","Choose seafood, French, Italian or Indonesian food near the hotel"]],
+  maps:["Paris Gare de Lyon","Nice-Ville station"],note:"Train tickets are confirmed; only the hotel-to-station transfer still needs attention."},
+ {wd:"Sun",city:"French Riviera",title:"Old Nice + Castle Hill + Baie des Anges",badge:"🌊 Easy city day",
+  ev:[["Morning","Hotel breakfast, or visit Cours Saleya market before it closes around noon"],["Noon","Optional Notre-Dame Basilica → Avenue Jean Médecin → Place Masséna → Old Nice"],["Afternoon","Take the free lift to Castle Hill for views over the red roofs and Baie des Anges"],["Evening","Walk down past the I Love Nice sign and relax by the Promenade des Anglais"],["19:00","Booked seaside dinner at Le Galet"],["Night","Choose a cocktail bar, live-music bar or an early night depending on energy"]],
+  maps:["Cours Saleya Market","Notre-Dame Basilica","Place Masséna","Old Nice","Castle Hill lift","I Love Nice","Le Galet"],note:"Èze, Villefranche and Monaco are no longer included; keep the full day for Nice. Try socca, gelato and coffee in the old town."},
+ {wd:"Mon",city:"Nice → Florence",title:"Nice → Menton → Florence",badge:"🚐 Private transfer booked",
+  ev:[["Morning","Check out; depart Nice in the booked cross-border vehicle"],["About 40 min","Reach Menton: beach → yellow stairs → Saint-Michel Basilica → old streets → viewpoint"],["Lunch","Stay 2–3 hours in Menton; seafood pasta is an easy lunch option"],["Afternoon","Menton to Florence, about 5 hours by road"],["Arrival","Check in; decide whether to rest before dinner based on traffic"],["20:00","Booked T-bone steak dinner at Trattoria Dall'Oste Chianineria"]],
+  maps:["Menton beach","Saint-Michel Basilica","Menton Old Town","Menton viewpoint","T-bone steak dinner"],note:"The latest route skips Monaco. The €900 private transfer for 6 is booked."},
+ {wd:"Tue",city:"Florence",title:"Duomo + Uffizi + sunset",badge:"🎟️ Two timed entries booked",
+  ev:[["Breakfast","Coffee near the hotel; try a pistachio croissant"],["11:00","⛪ Duomo booking: climb the dome first, then visit the museum; Giotto’s Bell Tower only if energy allows"],["13:30","Lunch near the cathedral, or a quick meal at Mercato Centrale / All’Antico Vinaio"],["15:00","🖼️ Uffizi booking: second-floor highlights first, then the first floor; allow about 2 hours"],["Evening","Taxi or walk to Piazzale Michelangelo for sunset"],["Dinner","Tuscan food nearby; optional Locale Firenze or Gucci Giardino after returning downtown"]],
+  maps:["Florence Duomo","Central Market","Uffizi Gallery","Piazzale Michelangelo","Locale Firenze","Gucci Giardino"],note:"The dome has about 460 steps and narrow passages. Climbing the bell tower on the same day may be too tiring."},
+ {wd:"Wed",city:"Florence → Capri",title:"Florence → Capri by train + ferry",badge:"🚄⛴️ Major transfer day",
+  ev:[["Breakfast","Check out after breakfast and go to Firenze SMN; buy sandwiches at the station if useful"],["10:48","🚄 Booked high-speed train to Napoli Centrale"],["14:03","Arrive in Naples; taxi about 20 minutes to Molo Beverello"],["Afternoon","⛴️ Booked ferry to Capri; reconfirm pier and sea conditions before departure"],["Arrival","Marina Grande → Capri town; hotel transfer or funicular plan still to be confirmed"],["Dinner","Italian food or seafood with a view; shops around the Piazzetta may be open until 21:00"]],
+  maps:["Florence SMN station","Napoli Centrale","Molo Beverello","Marina Grande Capri","Piazzetta Capri"],note:"Train and ferry are booked. Do not add a Naples stop during the connection; catching the ferry comes first."},
+ {wd:"Thu",city:"Capri",title:"A full day on Capri",badge:"🏝️ Slow island day",
+  ev:[["Breakfast","Walk to the Gardens of Augustus after hotel breakfast"],["Morning","Gardens of Augustus + free Via Krupp hairpin viewpoint; midday light is best for photos"],["Noon","Open-top taxi to Anacapri for lunch and shopping in the town centre"],["Afternoon","Round-trip chairlift to Monte Solaro for island-wide views"],["Optional","Visit the Blue Grotto only if conditions are good; otherwise shop in Capri or relax at a beach club"],["Dinner","Sunset restaurant in Anacapri or a seaside restaurant at Marina Piccola"]],
+  maps:["Gardens of Augustus","Anacapri","Monte Solaro chairlift","Blue Grotto","La Fontelina","Lido del Faro","Marina Piccola"],note:"An open-top taxi saves time for six people. Choose either the Blue Grotto or a beach club to keep the day relaxed."},
+ {wd:"Fri",city:"Capri → Rome",title:"Capri → Positano → Rome",badge:"⛴️🚙 Transfer day",
+  ev:[["Breakfast","Check out after breakfast and take all luggage to the port"],["Morning","⛴️ Booked ferry to Positano; store luggage immediately after landing"],["Noon","Lemon mirror → church → fruit shop → Via Cristoforo Colombo viewpoint"],["Lunch","Choose a sea-view restaurant, pizza or lemon sorbet along the main route"],["Afternoon","Meet the booked driver, hand over luggage and continue to Rome"],["Evening","Check in, then explore Trastevere for dinner, snacks, gelato and street life"]],
+  maps:["Positano ferry terminal","Lemon mirror","Santa Maria Assunta Church","Viewpoint","Trastevere","Piazza Trilussa"],note:"Positano has many stairs and you will have all luggage. Confirm storage and the driver pickup point in advance."},
+ {wd:"Sat",city:"Rome",title:"Castel Sant’Angelo + St Peter’s + Vatican",badge:"🎟️ 17:00 booked",
+  ev:[["Breakfast","Leave after hotel breakfast"],["Morning","See Castel Sant’Angelo from outside, walk by the Tiber and photograph the dome of St Peter’s"],["Lunch","Pasta, wraps or Sichuan food near the Vatican; watch the timed-entry schedule"],["Afternoon","St Peter’s Square + Basilica; allow time for security queues"],["17:00","⛪ Vatican Museums booking: Pinecone Courtyard → Laocoön → galleries → Raphael Rooms → Sistine Chapel"],["Dinner","Eat nearby after the museum visit"]],
+  maps:["Castel Sant’Angelo","Dome photo point","St Peter’s Square","St Peter’s Basilica","Vatican Museums"],note:"Shoulders and knees must be covered in churches. Allow 3–4 hours for the museums and avoid another distant attraction."},
+ {wd:"Sun",city:"Rome",title:"Colosseum + Trevi Fountain + old Rome",badge:"🏛️ Ancient Rome + old town",
+  ev:[["Early","Start early for the Colosseum; 4 October is a free-entry day, subject to official queue rules"],["Morning","🏛️ Colosseum levels 1–2 → Palatine Hill viewpoint → Roman Forum; allow about 3 hours"],["Lunch","Pizza, pasta or sandwiches near the Colosseum / Monti"],["Afternoon","Piazza Venezia → Pantheon → Piazza Navona → Trevi Fountain"],["Optional","Add the Spanish Steps only if energy allows"],["19:45","Booked view dinner at Gigi Rigolatto Roma; optional Drink Kong afterwards"]],
+  maps:["Colosseum","Palatine Hill","Roman Forum","Piazza Venezia","Pantheon","Piazza Navona","Trevi Fountain","Spanish Steps","Dinner","Drink Kong"],note:"This is the earliest-start day of the trip. Prioritise the Colosseum and Roman Forum; keep the Spanish Steps optional."},
+ {wd:"Mon",city:"Rome → Beijing",title:"Rome → airport → Beijing",badge:"✈️ Return flight",
+  ev:[["Breakfast","Easy morning after breakfast; optional Eataly, flea market or football-shirt shop"],["Lunch","Simple meal near the hotel, then collect luggage"],["15:30","Private transfer for 6 to FCO (<em>final confirmation still needed</em>)"],["About 16:30","Arrive at FCO for tax refund, check-in and security; French purchases are also validated here"],["17:00","International check-in / security"],["20:00","✈️ Fly to Beijing; with the late departure, an 11:00 start is still comfortable"]],
+  maps:["Eataly","Flea market","Football-shirt shop","FCO Airport"],note:"Stay close to the hotel in the morning. Keep passports, tax forms, purchases and boarding documents easy to reach."}
+];
+
+const HOTELS={
+  paris:{name:"Best Western Hotel Le Montparnasse",address:"37 Boulevard du Montparnasse, 75006 Paris, France"},
+  nice:{name:"Le Riviera Collection, BW Signature Collection",address:"36 Rue Rossini, 06000 Nice, France"},
+  florence:{name:"Hotel Bonifacio",address:"Via Bonifacio Lupi, 21, 50129 Firenze FI, Italy"},
+  capri:{name:"Hotel Della Piccola Marina",address:"Via Mulo, 14–16, 80073 Capri NA, Italy"},
+  rome:{name:"Hotel Santa Prisca",address:"Largo Manlio Gelsomini, 25, 00153 Roma RM, Italy"},
+};
+
+const STATIC_EN=[
+  ['.brand-sub',[" · France & Italy · 13 days"]],
+  ['.nav-links a',["Overview","Daily plan","Transport","Costs","Booking","Emergency","Tips","Updates"]],
+  ['#emergency .country-label',["FRANCE","FRANCE · SOUTHERN REGION","ITALY · CENTRAL & SOUTH","ITALY · CENTRAL REGION"]],
+ ['.hero .eyebrow',["Genius Hit The Road · Autumn 2026"]],
+ ['.hero h1',["France <span class='g'>×</span> Italy<br>A <span class='g'>slow-paced</span> 13-day journey"]],
+ ['.teamline',["✦ Travel group <b>Genius Hit The Road</b> ✦"]],
+ ['.hero .route',["<b>Paris</b> → French Riviera → <b>Florence</b> → Capri → <b>Rome</b>"]],
+ ['.meta-row .chip',["📅 <b>23 Sep → 5 Oct</b>","👥 <b>Group of 6</b>","🧳 Lots of luggage · <b>No self-driving</b>","✅ Flights, hotels & key tickets <b>mostly booked</b>"]],
+ ['.stat .l',["days","main bases","hotel nights","self-drive days"]],
+ ['#overview h2.sec',["Route overview"]],
+ ['#overview p.sub',["A north-to-south route with almost no backtracking · High-speed trains and private transfers between cities"]],
+ ['#overview .leg .city',["Paris","Nice / French Riviera","Florence","Capri","Rome"]],
+ ['#overview .leg .desc',["Louvre · Eiffel viewpoints · Champs-Élysées shopping","Old Nice · Castle Hill · Baie des Anges · Menton","Duomo climb · Uffizi · sunset","Gardens of Augustus · Monte Solaro · Positano","Vatican evening · Colosseum · old Rome"]],
+ ['#overview .note',["⏰ <b>Pace:</b> most days start gently. Early starts are needed for the 11:22 train on 26 Sep, the cross-border transfer on 28 Sep, the train-and-ferry connection on 30 Sep and the Colosseum free-entry day on 4 Oct. Adjust everything else to energy and weather."]],
+ ['#daily h2.sec',["Detailed daily itinerary"]],
+ ['#daily p.sub',["Tap any day to expand or collapse · Tap a place to open Google Maps navigation"]],
+ ['#transport h2.sec',["Transport strategy"]],
+ ['#transport p.sub',["No self-driving: use booked high-speed trains, ferries and private transfers for long distances; walk, take public transport or short taxis in cities."]],
+ ['#transport .scroll-hint',["← Swipe sideways to view the full table →"]],
+ ['#transport th',["Route","Mode","Notes"]],
+ ['#transport td',[
+  "CDG → Paris hotel","Pre-booked transfer for 6","Door-to-door after landing; €120 payable on site; confirm driver details one day ahead",
+  "Paris → Nice","Booked direct TGV · 11:22","Buy lunch before boarding; hotel-to-station transfer for 6 still needs confirmation",
+  "Nice → Menton → Florence","Booked cross-border transfer","Stop in Menton for 2–3 hours, then about 5 hours to Florence",
+  "Florence → Naples","Booked high-speed train · 10:48–14:03","Taxi from Napoli Centrale to Molo Beverello",
+  "Naples → Capri","Booked ferry","Board at Molo Beverello; reconfirm pier, sailing and sea conditions that day",
+  "Around Capri","Funicular / bus / open-top taxi","Use the funicular to Capri town; an open-top taxi works well for 5–6 people to Anacapri",
+  "Capri → Positano","Booked ferry","Take all luggage off the island; store it before sightseeing",
+  "Positano → Rome","Booked private transfer","Confirm luggage handover and pickup point with the driver",
+  "Rome → FCO","Private transfer to confirm","Allow enough time for international check-in and tax refund"
+ ]],
+ ['#costs h2.sec',["Daily transport & known costs"]],
+ ['#costs p.sub',["Based on the latest bookings; public itinerary totals and per-person references only, excluding hotels and personal spending"]],
+ ['#costs .scroll-hint',["← Swipe sideways to view the full table →"]],
+ ['#costs th',["Date","How to travel","Cost / status"]],
+ ['#costs td',[
+  "23 Sep · arrival","Airport transfer for 6","<span class='em'>Booked · €120</span>, payable on site",
+  "24 Sep · Paris","Metro + walking","About 20 minutes from hotel to Louvre; tap or pay other fares as used",
+  "25 Sep · Paris","Metro + walking + short taxi","Stay flexible between the Eiffel Tower, Champs-Élysées and shopping areas",
+  "26 Sep · Paris → Nice","Direct TGV","<span class='em'>Booked · €432 for 6, about €72 each</span>",
+  "27 Sep · Nice","Walking","Old Nice, Castle Hill and the waterfront form one easy route",
+  "28 Sep · Nice → Florence","Cross-border transfer","<span class='em'>Booked · €900 for 6, about €150 each</span>",
+  "29 Sep · Florence","Walking + taxi for sunset","About 500 m between the Duomo and Uffizi",
+  "30 Sep · Florence → Capri","Train + taxi + ferry","Train €215.40 and ferry €216 for 6; both booked",
+  "1 Oct · Capri","Open-top taxi + chairlift","Taxi about €30 per vehicle; Monte Solaro chairlift about €14 each",
+  "2 Oct · Capri → Positano → Rome","Ferry + private transfer","Ferry €209.50 and transfer €900 for 6; both booked",
+  "3 Oct · Rome / Vatican","Walking + short taxi","Vatican Museums tickets <span class='em'>booked · €150 for 6</span>",
+  "4 Oct · Rome","Mostly walking","Colosseum free-entry day; allow for queues",
+  "5 Oct · Rome → FCO","Private transfer for 6","<span class='em'>To confirm</span>"
+ ]],
+ ['#costs .note',["💰 The 28 Sep cross-border transfer, 30 Sep train and ferry, and 2 Oct ferry and transfer are confirmed. Current priorities are the <b>Paris hotel → station, Capri port → hotel, and Rome hotel → FCO</b> connections."]],
+ ['#booking h2.sec',["Booking status · latest update"]],
+ ['#booking p.sub',["Based on the latest itinerary; booking references, traveler names and contact details are not shown on this public page"]],
+ ['#booking h3',["✅ Confirmed","🎟️ Tickets & restaurants booked","🟡 Still to confirm"]],
+ ['#booking li',[
+  "<b>Hotels</b> in Paris, Nice, Florence, Capri and Rome","23 Sep · <b>Paris airport pickup</b>","26 Sep · <b>Paris → Nice TGV</b>","28 Sep · <b>Nice → Florence private transfer</b>","30 Sep · <b>Florence → Naples train</b> and Capri ferry","2 Oct · <b>Capri → Positano ferry</b> and Positano → Rome transfer",
+  "24 Sep · <b>Louvre 11:30</b> and dinner 20:00","25 Sep · vintage football shop 16:00–16:15 and <b>Les Ombres 20:30</b>","27 Sep · <b>Le Galet 19:00</b>","28 Sep · Florence T-bone dinner 20:00","29 Sep · <b>Duomo 11:00 and Uffizi 15:00</b>","3 Oct · <b>Vatican Museums 17:00</b>; 4 Oct dinner 19:45",
+  "Transfer for 6 from <b>Paris hotel to station</b>","Whether to add <b>Sainte-Chapelle</b> on 24 Sep; Notre-Dame is exterior only","Whether to buy a <b>Seine cruise</b> on 25 Sep","<b>Hotel transfer or funicular</b> from Capri port","Whether to book a beach club or the Blue Grotto on 1 Oct","2 Oct Positano <b>luggage storage</b> and driver handoff; 5 Oct Rome → FCO transfer"
+ ]],
+ ['#tips h2.sec',["Practical tips"]],
+ ['#tips p.sub',["Review before departure for a smoother, more economical trip"]],
+ ['#tips h3',["🌤️ Weather & clothing","⛴️ Sea conditions / motion sickness","💶 Tax refund","🧳 Capri luggage","💳 Payment / safety","⛪ Reservations & closures"]],
+ ['#tips li',[
+  "Paris around <b>12–20°C</b> with possible rain; bring a light jacket and umbrella","French Riviera / southern Italy / Rome around <b>18–26°C</b>","Churches require <b>covered shoulders and knees</b>",
+  "Check the last sailing and sea conditions for Naples → Capri and Capri → Positano <b>on the day</b>","Strong winds may cancel ferries; keep plans flexible","Coastal roads are winding; <b>bring motion-sickness medicine</b>",
+  "Approximate tax-free thresholds: <b>€100</b> per shop in France and <b>€70</b> in Italy","Shops issue forms; <span class='em'>customs validation is completed together at Rome FCO</span>, including French purchases","Allow <b>1–1.5 hours</b> at the airport",
+  "Use the <b>funicular or hotel transfer</b> from the port to Capri town","With luggage for six, confirm handling with the hotel before arrival","Store luggage first in Positano on 2 Oct, then explore on foot",
+  "Cards are widely accepted; keep <b>some cash</b> for towns, ports and markets; activate eSIM on arrival","Watch for <b>pickpockets</b> in Paris, Naples and Rome; keep bags in front",
+  "<span class='em'>Vatican Museums booked for Sat 3 Oct at 17:00</span>","4 Oct is a Colosseum free-entry day; arrive early and check official entry rules","The latest plan is to queue on site for the Pantheon; recheck ticket rules before departure"
+ ]],
+ ['#feedback h3',["📝 Latest version synced"]],
+ ['#feedback p',["This page reflects the latest shared itinerary. Before departure, reconfirm <b>transfers, ferry conditions, the Capri connection, Positano luggage storage and the Rome airport transfer</b>. Personal documents, contacts and booking references are not displayed."]],
+ ['footer',["<b>Genius Hit The Road</b> &nbsp;·&nbsp; France & Italy · 13-day family trip &nbsp;·&nbsp; Latest itinerary &nbsp;·&nbsp; Adjust to energy, weather and transport conditions"]]
 ];
 
 const CITYGROUPS=[
@@ -475,23 +723,43 @@ function groupOf(d){
   return "罗马";
 }
 function cssv(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+function dual(zh,en){
+  return `<span class="lang-zh">${zh}</span><span class="lang-en">${en||zh}</span>`;
+}
+function mapUrl(query,mode="walking"){
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}&travelmode=${mode}`;
+}
+function renderMaps(maps=[],enLabels=[]){
+  if(!maps.length)return '';
+  const links=maps.map(([label,query,mode],i)=>
+    `<a class="maplink" href="${mapUrl(query,mode)}" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps navigation to ${enLabels[i]||label}">📍 ${dual(label,enLabels[i]||label)}</a>`
+  ).join('');
+  return `<div class="mapbox"><div class="maptitle">${dual('今日地点 · 点击打开 Google Maps 导航','Today’s places · tap to open Google Maps navigation')}</div><div class="maplinks">${links}</div></div>`;
+}
+function renderHotel(key){
+  const hotel=HOTELS[key];
+  if(!hotel)return '';
+  return `<div class="stay"><div class="hotel-info"><span>🏨</span><span><b>${hotel.name}</b><span class="hotel-address">${hotel.address}</span></span></div><a class="hotel-nav" href="${mapUrl(`${hotel.name}, ${hotel.address}`,"driving")}" target="_blank" rel="noopener noreferrer" aria-label="Open Google Maps navigation to ${hotel.name}">${dual('导航到酒店','Hotel directions')}</a></div>`;
+}
 
 function render(filter){
   const grid=document.getElementById('daysGrid');grid.innerHTML='';
   DAYS.filter(d=>filter==="all"||groupOf(d)===filter).forEach(d=>{
+    const en=EN_DAYS[d.n-1];
     const c=cssv(d.color);
-    const evs=d.ev.map(e=>`<div class="ev"><span class="tm">${e[0]}</span><span class="dx">${e[1]}</span></div>`).join('');
-    const note=d.note?`<div class="note">💡 ${d.note}</div>`:'';
-    const stay=d.stay?`<div class="stay">🏨 ${d.stay}</div>`:'';
+    const evs=d.ev.map((e,i)=>`<div class="ev"><span class="tm">${dual(e[0],en.ev[i][0])}</span><span class="dx">${dual(e[1],en.ev[i][1])}</span></div>`).join('');
+    const maps=renderMaps(d.maps,en.maps);
+    const note=d.note?`<div class="note">💡 ${dual(d.note,en.note)}</div>`:'';
+    const stay=renderHotel(d.hotel);
     const el=document.createElement('div');el.className='day';
     el.innerHTML=`
       <div class="day-head">
         <div class="daynum" style="background:linear-gradient(135deg,${c},${c}99)">${d.n}</div>
-        <div><div class="t1">${d.title}</div><div class="t2">${d.date} ${d.wd} · ${d.city}</div></div>
-        <span class="badge" style="color:${c};border-color:${c}55">${d.badge}</span>
+        <div><div class="t1">${dual(d.title,en.title)}</div><div class="t2">${d.date} ${dual(d.wd,en.wd)} · ${dual(d.city,en.city)}</div></div>
+        <span class="badge" style="color:${c};border-color:${c}55">${dual(d.badge,en.badge)}</span>
         <span class="arrow">▶</span>
       </div>
-      <div class="day-body"><div class="day-inner"><div class="tl">${evs}</div>${note}${stay}</div></div>`;
+      <div class="day-body"><div class="day-inner"><div class="tl">${evs}</div>${maps}${note}${stay}</div></div>`;
     el.querySelector('.day-head').addEventListener('click',()=>{
       const open=el.classList.toggle('open');
       const body=el.querySelector('.day-body');
@@ -503,9 +771,41 @@ function render(filter){
   const first=grid.querySelector('.day');
   if(first){first.classList.add('open');const b=first.querySelector('.day-body');b.style.maxHeight=b.firstElementChild.scrollHeight+40+'px';}
 }
+
+function bilingualize(el,en){
+  if(!el||el.dataset.i18nReady)return;
+  const zh=el.innerHTML;
+  el.innerHTML=dual(zh,en);
+  el.dataset.i18nReady='1';
+}
+function installStaticTranslations(){
+  document.querySelectorAll('[data-en]').forEach(el=>bilingualize(el,el.dataset.en));
+  STATIC_EN.forEach(([selector,translations])=>{
+    document.querySelectorAll(selector).forEach((el,i)=>{
+      if(translations[i]!==undefined)bilingualize(el,translations[i]);
+    });
+  });
+}
+function fitOpenDays(){
+  requestAnimationFrame(()=>document.querySelectorAll('.day.open .day-body').forEach(body=>{
+    body.style.maxHeight=body.firstElementChild.scrollHeight+40+'px';
+  }));
+}
+function setLanguage(lang){
+  const safe=['zh','en','bi'].includes(lang)?lang:'bi';
+  document.body.dataset.lang=safe;
+  document.documentElement.lang=safe==='en'?'en':'zh-CN';
+  document.title=safe==='en'?'France & Italy · 13-Day Family Trip':'法国 · 意大利 13 天家庭游';
+  document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.classList.toggle('on',btn.dataset.setLang===safe));
+  try{localStorage.setItem('trip-language',safe);}catch(e){}
+  fitOpenDays();
+}
+installStaticTranslations();
+document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.setLang)));
 const fc=document.getElementById('filters');
 CITYGROUPS.forEach((g,i)=>{
-  const b=document.createElement('div');b.className='fbtn'+(i===0?' on':'');b.textContent=g.label;
+  const enLabels=['All 13 days','🗼 Paris','🌊 French Riviera','🎨 Florence','🏝️ Capri','🏛️ Rome'];
+  const b=document.createElement('div');b.className='fbtn'+(i===0?' on':'');b.innerHTML=dual(g.label,enLabels[i]);
   if(i===0)b.style.background=cssv('--grad');
   b.addEventListener('click',()=>{
     document.querySelectorAll('.fbtn').forEach(x=>{x.classList.remove('on');x.style.background='';x.style.color='';});
@@ -517,6 +817,9 @@ CITYGROUPS.forEach((g,i)=>{
   fc.appendChild(b);
 });
 render('all');
+let savedLanguage='bi';
+try{savedLanguage=localStorage.getItem('trip-language')||'bi';}catch(e){}
+setLanguage(savedLanguage);
 </script>
 </body>
 </html>
